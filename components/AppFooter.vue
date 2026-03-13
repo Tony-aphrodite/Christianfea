@@ -2,30 +2,27 @@
 const currentYear = new Date().getFullYear()
 
 const footerLinks = {
-  services: [
-    { name: 'Business Consulting', href: '/services#consulting' },
-    { name: 'Growth Strategy', href: '/services#strategy' },
-    { name: 'Referral Marketing', href: '/services#referral' },
-    { name: 'Joint Ventures', href: '/services#ventures' },
+  portfolio: [
+    { name: 'AI Automation', href: '/services#ai-automation' },
+    { name: 'E-Commerce Platform', href: '/services#elegant-styles' },
+    { name: 'CRM Platform', href: '/services#ai-crm' },
+    { name: 'AI Chatbot System', href: '/services#ai-chatbot' },
   ],
   resources: [
     { name: 'Blog', href: '/blog' },
-    { name: 'Free Resources', href: '/resources' },
-    { name: 'JV Wealth Report', href: '/jv-report' },
-    { name: 'AI Daily Catalyst', href: '/ai-catalyst' },
+    { name: 'About Me', href: '/about' },
+    { name: 'My Experience', href: '/about#experience' },
   ],
-  company: [
-    { name: 'About', href: '/about' },
+  connect: [
     { name: 'Contact', href: '/contact' },
-    { name: 'Schedule Call', href: '/contact#schedule' },
-    { name: 'Client Portal', href: '/client-portal' },
+    { name: 'Send Message', href: '/contact#schedule' },
   ],
 }
 
 const socialLinks = [
+  { name: 'GitHub', icon: 'mdi:github', href: '#' },
   { name: 'LinkedIn', icon: 'mdi:linkedin', href: '#' },
   { name: 'Twitter', icon: 'mdi:twitter', href: '#' },
-  { name: 'YouTube', icon: 'mdi:youtube', href: '#' },
 ]
 </script>
 
@@ -46,7 +43,7 @@ const socialLinks = [
             </div>
           </NuxtLink>
           <p class="text-dark-300 mb-6 max-w-sm leading-relaxed">
-            Helping mission-based entrepreneurs transform themselves and the people they influence through continuous improvement strategies.
+            AI Full-Stack Developer specializing in building scalable web & mobile applications with modern AI technologies.
           </p>
           <div class="flex space-x-4">
             <a
@@ -63,9 +60,9 @@ const socialLinks = [
 
         <!-- Services Links -->
         <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-dark-400 mb-4">Services</h3>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-dark-400 mb-4">Portfolio</h3>
           <ul class="space-y-3">
-            <li v-for="link in footerLinks.services" :key="link.name">
+            <li v-for="link in footerLinks.portfolio" :key="link.name">
               <NuxtLink
                 :to="link.href"
                 class="text-dark-300 hover:text-primary-400 transition-colors"
@@ -93,9 +90,9 @@ const socialLinks = [
 
         <!-- Company Links -->
         <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-dark-400 mb-4">Company</h3>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-dark-400 mb-4">Connect</h3>
           <ul class="space-y-3">
-            <li v-for="link in footerLinks.company" :key="link.name">
+            <li v-for="link in footerLinks.connect" :key="link.name">
               <NuxtLink
                 :to="link.href"
                 class="text-dark-300 hover:text-primary-400 transition-colors"
