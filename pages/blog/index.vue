@@ -1,92 +1,102 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Blog | Anatolii Petrenko',
-  description: 'Insights and strategies for business growth, referral marketing, joint ventures, and continuous improvement.',
+  title: 'Products | Anatolii Petrenko',
+  description: 'Explore my portfolio of web applications, mobile apps, and AI-powered platforms built for real-world businesses.',
 })
 
-const posts = [
+const projects = [
   {
-    slug: 'need-more-sales',
-    title: 'I Need More Sales: A Strategic Approach to Growth',
-    excerpt: 'Discover proven strategies to increase your sales without burning out your team or sacrificing customer relationships. Learn how to build sustainable revenue systems.',
-    category: 'Sales Strategy',
-    date: '2024-12-15',
-    readTime: '5 min read',
-    featured: true,
+    id: 'ecommerce-platform',
+    title: 'E-Commerce Platform',
+    description: 'A full-stack e-commerce solution with React, Node.js, and PostgreSQL featuring real-time inventory management and payment processing.',
+    category: 'Web App',
+    link: 'https://wolfandbadger.com',
+    stack: [
+      { name: 'React', icon: 'logos:react' },
+      { name: 'Node.js', icon: 'logos:nodejs-icon' },
+      { name: 'PostgreSQL', icon: 'logos:postgresql' },
+      { name: 'Stripe', icon: 'logos:stripe' },
+    ],
   },
   {
-    slug: 'referral-software-grow-business',
-    title: 'Can Referral Software Help Me Grow My Business?',
-    excerpt: 'Explore how modern referral marketing tools can automate and scale your word-of-mouth marketing efforts for consistent lead generation.',
-    category: 'Referral Marketing',
-    date: '2024-12-10',
-    readTime: '7 min read',
-    featured: false,
+    id: 'social-media-dashboard',
+    title: 'Social Media Dashboard',
+    description: 'A responsive social media analytics dashboard built with Next.js and TypeScript, featuring real-time data visualization.',
+    category: 'Dashboard',
+    link: 'https://poosting.com/',
+    stack: [
+      { name: 'Next.js', icon: 'logos:nextjs-icon' },
+      { name: 'TypeScript', icon: 'logos:typescript-icon' },
+      { name: 'Chart.js', icon: 'simple-icons:chartdotjs' },
+      { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
+    ],
   },
   {
-    slug: 'time-focus-mini-day-challenge',
-    title: 'Life Optimizers: Time Focus and the Mini Day Challenge',
-    excerpt: 'Learn the mini day challenge technique to maximize productivity and achieve more in less time without sacrificing quality or wellbeing.',
-    category: 'Productivity',
-    date: '2024-12-05',
-    readTime: '4 min read',
-    featured: false,
+    id: 'real-estate-platform',
+    title: 'Real Estate Platform',
+    description: 'A comprehensive real estate platform with property listings, virtual tours, and advanced search functionality.',
+    category: 'Web App',
+    link: 'https://propertiesmt.com',
+    stack: [
+      { name: 'Next.js', icon: 'logos:nextjs-icon' },
+      { name: 'Prisma', icon: 'simple-icons:prisma' },
+      { name: 'PostgreSQL', icon: 'logos:postgresql' },
+      { name: 'Google Maps', icon: 'logos:google-maps' },
+    ],
   },
   {
-    slug: 'velore-networks-blockchain-marketing',
-    title: 'Velore Networks: The Future of Relationship Marketing',
-    excerpt: 'An introduction to blockchain-powered relationship marketing and how it\'s changing the way businesses connect with customers.',
-    category: 'Innovation',
-    date: '2024-11-28',
-    readTime: '6 min read',
-    featured: false,
+    id: 'task-management-app',
+    title: 'Task Management Mobile App',
+    description: 'A cross-platform mobile app for task management with offline capabilities and real-time synchronization.',
+    category: 'Mobile App',
+    link: 'https://mylifeorganized.net',
+    stack: [
+      { name: 'React Native', icon: 'logos:react' },
+      { name: 'Firebase', icon: 'logos:firebase' },
+      { name: 'Redux', icon: 'logos:redux' },
+    ],
   },
   {
-    slug: 'empiring-business-framework',
-    title: 'Empiring: A New Framework for Business Growth',
-    excerpt: 'Introducing the Empiring framework - a comprehensive approach to building and scaling mission-driven businesses.',
-    category: 'Strategy',
-    date: '2024-11-20',
-    readTime: '8 min read',
-    featured: false,
+    id: 'ai-chatbot',
+    title: 'AI-Powered Chatbot',
+    description: 'An intelligent chatbot API built with Python and FastAPI, integrated with natural language processing capabilities.',
+    category: 'AI',
+    link: 'https://nomi.ai',
+    stack: [
+      { name: 'Python', icon: 'logos:python' },
+      { name: 'FastAPI', icon: 'simple-icons:fastapi' },
+      { name: 'OpenAI', icon: 'simple-icons:openai' },
+      { name: 'Docker', icon: 'logos:docker-icon' },
+    ],
   },
   {
-    slug: 'joint-venture-success-secrets',
-    title: 'The Secret to Successful Joint Ventures',
-    excerpt: 'Learn the key principles that make joint ventures succeed and how to avoid the common pitfalls that derail partnerships.',
-    category: 'Joint Ventures',
-    date: '2024-11-15',
-    readTime: '6 min read',
-    featured: false,
+    id: 'weather-app',
+    title: 'Weather Forecast App',
+    description: 'A beautiful weather application with location-based forecasts and interactive weather maps.',
+    category: 'Web App',
+    link: 'https://weawow.com',
+    stack: [
+      { name: 'React', icon: 'logos:react' },
+      { name: 'Leaflet', icon: 'logos:leaflet' },
+      { name: 'CSS3', icon: 'logos:css-3' },
+    ],
   },
 ]
 
-const categories = ['All', 'Sales Strategy', 'Referral Marketing', 'Productivity', 'Innovation', 'Strategy', 'Joint Ventures']
+const categories = ['All', 'Web App', 'Dashboard', 'Mobile App', 'AI']
 
 const selectedCategory = ref('All')
 
-const filteredPosts = computed(() => {
-  if (selectedCategory.value === 'All') return posts
-  return posts.filter(post => post.category === selectedCategory.value)
+const filteredProjects = computed(() => {
+  if (selectedCategory.value === 'All') return projects
+  return projects.filter(p => p.category === selectedCategory.value)
 })
 
-const featuredPost = computed(() => posts.find(p => p.featured))
-
 const categoryColors: Record<string, string> = {
-  'Sales Strategy': 'bg-blue-100 text-blue-700',
-  'Referral Marketing': 'bg-green-100 text-green-700',
-  'Productivity': 'bg-purple-100 text-purple-700',
-  'Innovation': 'bg-orange-100 text-orange-700',
-  'Strategy': 'bg-pink-100 text-pink-700',
-  'Joint Ventures': 'bg-cyan-100 text-cyan-700',
-}
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
+  'Web App': 'bg-blue-100 text-blue-700',
+  'Dashboard': 'bg-green-100 text-green-700',
+  'Mobile App': 'bg-purple-100 text-purple-700',
+  'AI': 'bg-orange-100 text-orange-700',
 }
 </script>
 
@@ -101,72 +111,21 @@ function formatDate(dateString: string) {
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span class="inline-block px-4 py-1.5 bg-white/10 text-primary-300 text-sm font-semibold rounded-full mb-6">
-          Blog
+          Products
         </span>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white mb-6">
-          Insights &
+          Built &
           <span class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-            Strategies
+            Delivered
           </span>
         </h1>
         <p class="text-xl text-dark-300 max-w-2xl mx-auto">
-          Actionable strategies and insights to help you grow your business, build partnerships, and achieve sustainable success.
+          A collection of real-world products I've built — from e-commerce platforms and dashboards to AI-powered systems and mobile apps.
         </p>
       </div>
     </section>
 
-    <!-- Featured Post -->
-    <section v-if="featuredPost" class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl overflow-hidden">
-          <div class="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
-            <!-- Image -->
-            <div class="aspect-video lg:aspect-auto bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center">
-              <Icon name="heroicons:document-text-20-solid" class="w-24 h-24 text-primary-300" />
-            </div>
-
-            <!-- Content -->
-            <div class="flex flex-col justify-center">
-              <div class="flex items-center space-x-3 mb-4">
-                <span class="px-3 py-1 bg-primary-600 text-white text-xs font-semibold rounded-full">
-                  Featured
-                </span>
-                <span
-                  class="px-3 py-1 text-xs font-semibold rounded-full"
-                  :class="categoryColors[featuredPost.category]"
-                >
-                  {{ featuredPost.category }}
-                </span>
-              </div>
-              <h2 class="text-2xl lg:text-3xl font-bold text-dark-900 mb-4">
-                <NuxtLink :to="`/blog/${featuredPost.slug}`" class="hover:text-primary-600 transition-colors">
-                  {{ featuredPost.title }}
-                </NuxtLink>
-              </h2>
-              <p class="text-dark-500 mb-6 leading-relaxed">
-                {{ featuredPost.excerpt }}
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4 text-sm text-dark-400">
-                  <span>{{ formatDate(featuredPost.date) }}</span>
-                  <span>&bull;</span>
-                  <span>{{ featuredPost.readTime }}</span>
-                </div>
-                <NuxtLink
-                  :to="`/blog/${featuredPost.slug}`"
-                  class="text-primary-600 font-semibold flex items-center hover:text-primary-700 transition-colors"
-                >
-                  Read Article
-                  <Icon name="heroicons:arrow-right-20-solid" class="w-5 h-5 ml-1" />
-                </NuxtLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- All Posts -->
+    <!-- Projects -->
     <section class="py-16 bg-dark-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Category Filter -->
@@ -184,18 +143,16 @@ function formatDate(dateString: string) {
           </button>
         </div>
 
-        <!-- Posts Grid -->
+        <!-- Projects Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article
-            v-for="post in filteredPosts"
-            :key="post.slug"
+          <div
+            v-for="project in filteredProjects"
+            :key="project.id"
             class="group card overflow-hidden"
           >
-            <!-- Image -->
-            <div class="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <Icon name="heroicons:document-text-20-solid" class="w-16 h-16 text-primary-300" />
-              </div>
+            <!-- Header -->
+            <div class="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 relative overflow-hidden flex items-center justify-center">
+              <Icon name="heroicons:rocket-launch-20-solid" class="w-16 h-16 text-primary-300 group-hover:scale-110 transition-transform duration-300" />
               <div class="absolute inset-0 bg-dark-900/0 group-hover:bg-dark-900/10 transition-colors duration-300"></div>
             </div>
 
@@ -204,67 +161,75 @@ function formatDate(dateString: string) {
               <div class="flex items-center space-x-3 mb-4">
                 <span
                   class="px-3 py-1 text-xs font-semibold rounded-full"
-                  :class="categoryColors[post.category] || 'bg-dark-100 text-dark-600'"
+                  :class="categoryColors[project.category] || 'bg-dark-100 text-dark-600'"
                 >
-                  {{ post.category }}
+                  {{ project.category }}
                 </span>
-                <span class="text-sm text-dark-400">{{ post.readTime }}</span>
               </div>
 
-              <h3 class="text-lg font-bold text-dark-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
-                <NuxtLink :to="`/blog/${post.slug}`">
-                  {{ post.title }}
-                </NuxtLink>
+              <h3 class="text-lg font-bold text-dark-900 mb-2 group-hover:text-primary-600 transition-colors">
+                {{ project.title }}
               </h3>
 
-              <p class="text-dark-500 text-sm mb-4 line-clamp-3">
-                {{ post.excerpt }}
+              <p class="text-dark-500 text-sm mb-6 leading-relaxed">
+                {{ project.description }}
               </p>
 
-              <div class="flex items-center justify-between pt-4 border-t border-dark-100">
-                <span class="text-sm text-dark-400">{{ formatDate(post.date) }}</span>
-                <NuxtLink
-                  :to="`/blog/${post.slug}`"
+              <!-- Tech Stack -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <div
+                  v-for="tech in project.stack"
+                  :key="tech.name"
+                  class="group/tech relative"
+                >
+                  <div class="w-9 h-9 bg-white rounded-lg shadow-sm border border-dark-100 flex items-center justify-center hover:scale-110 hover:-translate-y-0.5 hover:border-primary-200 transition-all duration-300 cursor-default">
+                    <Icon :name="tech.icon" class="w-5 h-5" />
+                  </div>
+                  <div class="absolute -top-7 left-1/2 -translate-x-1/2 bg-dark-900 text-white text-xs px-2 py-0.5 rounded opacity-0 group-hover/tech:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                    {{ tech.name }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Link -->
+              <div class="pt-4 border-t border-dark-100">
+                <a
+                  :href="project.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="text-primary-600 font-semibold text-sm flex items-center hover:text-primary-700 transition-colors"
                 >
-                  Read More
-                  <Icon name="heroicons:arrow-right-20-solid" class="w-4 h-4 ml-1" />
-                </NuxtLink>
+                  Live Demo
+                  <Icon name="heroicons:arrow-top-right-on-square-20-solid" class="w-4 h-4 ml-1" />
+                </a>
               </div>
             </div>
-          </article>
+          </div>
         </div>
 
         <!-- Empty State -->
-        <div v-if="filteredPosts.length === 0" class="text-center py-16">
+        <div v-if="filteredProjects.length === 0" class="text-center py-16">
           <Icon name="heroicons:document-magnifying-glass-20-solid" class="w-16 h-16 text-dark-300 mx-auto mb-4" />
-          <h3 class="text-xl font-bold text-dark-900 mb-2">No posts found</h3>
+          <h3 class="text-xl font-bold text-dark-900 mb-2">No projects found</h3>
           <p class="text-dark-500">Try selecting a different category.</p>
         </div>
       </div>
     </section>
 
-    <!-- Newsletter CTA -->
+    <!-- CTA -->
     <section class="py-24 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Icon name="heroicons:envelope-20-solid" class="w-16 h-16 text-primary-600 mx-auto mb-6" />
+        <Icon name="heroicons:code-bracket-20-solid" class="w-16 h-16 text-primary-600 mx-auto mb-6" />
         <h2 class="section-title mb-4">
-          Subscribe to the <span class="gradient-text">Newsletter</span>
+          Have a Project in <span class="gradient-text">Mind?</span>
         </h2>
         <p class="text-lg text-dark-500 mb-8">
-          Get weekly insights on business growth, marketing strategies, and continuous improvement delivered to your inbox.
+          I'm always open to new challenges. Let's build something great together.
         </p>
-        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            class="flex-1 px-4 py-3 bg-dark-50 border border-dark-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all outline-none"
-          />
-          <button type="submit" class="btn-primary">
-            Subscribe
-          </button>
-        </form>
-        <p class="text-sm text-dark-400 mt-4">No spam, unsubscribe anytime.</p>
+        <NuxtLink to="/contact" class="btn-primary">
+          Get In Touch
+          <Icon name="heroicons:arrow-right-20-solid" class="w-5 h-5 ml-2" />
+        </NuxtLink>
       </div>
     </section>
   </div>

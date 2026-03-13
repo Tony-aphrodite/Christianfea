@@ -9,7 +9,7 @@ const footerLinks = {
     { name: 'AI Chatbot System', href: '/services#ai-chatbot' },
   ],
   resources: [
-    { name: 'Blog', href: '/blog' },
+    { name: 'Products', href: '/blog' },
     { name: 'About Me', href: '/about' },
     { name: 'My Experience', href: '/about#experience' },
   ],
