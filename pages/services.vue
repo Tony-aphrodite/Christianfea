@@ -1,112 +1,38 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Services | Anatolii Petrenko',
-  description: 'Explore comprehensive business consulting services including growth strategy, referral marketing, joint ventures, and business optimization.',
+  description: 'Explore my portfolio of AI automation systems and web development projects.',
 })
 
-const services = [
+const projects = [
   {
-    id: 'consulting',
-    icon: 'heroicons:rocket-launch-20-solid',
-    title: 'Business Growth Strategy',
-    description: 'Develop a comprehensive roadmap for sustainable growth with actionable strategies tailored to your unique business goals and market position.',
-    benefits: [
-      'Custom growth roadmap development',
-      'Market opportunity analysis',
-      'Competitive positioning strategy',
-      'Revenue diversification planning',
-      'Scalability assessment and planning',
-      'Performance metrics and KPI development',
+    id: 'ai-automation',
+    title: 'AI Automation for Business Growth',
+    description: 'I help businesses save time, reduce costs, and increase productivity by building powerful AI automation systems tailored to their needs.',
+    details: 'From workflow automation to intelligent chatbots and system integrations, I design solutions that streamline repetitive tasks and improve operational efficiency. Whether you need automated customer support, lead management systems, data processing pipelines, or API integrations, I can build reliable and scalable automation that works 24/7.',
+    image: '/serve.png',
+    stack: [
+      { name: 'PHP', color: 'from-indigo-500 to-indigo-700', letter: 'PHP' },
+      { name: 'Node.js', color: 'from-green-500 to-green-700', letter: 'N' },
+      { name: 'API', color: 'from-purple-500 to-purple-700', letter: 'API' },
+      { name: 'JavaScript', color: 'from-yellow-400 to-yellow-600', letter: 'JS' },
     ],
-    color: 'primary',
   },
   {
-    id: 'referral',
-    icon: 'heroicons:user-group-20-solid',
-    title: 'Referral Marketing',
-    description: 'Harness the power of word-of-mouth marketing to generate high-quality leads and build lasting customer relationships that fuel organic growth.',
-    benefits: [
-      'Referral program design and implementation',
-      'Customer advocacy strategy',
-      'Incentive structure optimization',
-      'Referral tracking systems',
-      'Word-of-mouth amplification',
-      'Customer loyalty programs',
+    id: 'elegant-styles',
+    title: 'Elegant Styles — Modern Glamour Collection',
+    description: 'Elegant Styles presents a captivating visual campaign designed to highlight modern femininity through glamour and sophistication.',
+    details: 'This fashion advertisement blends luxurious aesthetics with contemporary elegance, showcasing statement evening dresses that radiate confidence and charm. The sparkling textures, refined silhouettes, and premium color palette create a high-end visual identity tailored for modern women who embrace style and individuality.\n\nThe balanced composition, soft lighting effects, and glamorous atmosphere enhance the premium feel of the collection, making it ideal for fashion brands seeking a strong and memorable presence across digital platforms, social media campaigns, and online stores.\n\nDesigned to attract attention instantly, this campaign reflects elegance, confidence, and modern luxury in every detail.',
+    image: '/clothes.png',
+    stack: [
+      { name: 'PHP', color: 'from-indigo-500 to-indigo-700', letter: 'PHP' },
+      { name: 'Laravel', color: 'from-red-500 to-red-700', letter: 'L' },
+      { name: 'MySQL', color: 'from-blue-500 to-blue-700', letter: 'My' },
+      { name: 'AWS', color: 'from-orange-400 to-orange-600', letter: 'AWS' },
+      { name: 'Vue.js', color: 'from-emerald-500 to-emerald-700', letter: 'V' },
     ],
-    color: 'secondary',
-  },
-  {
-    id: 'ventures',
-    icon: 'heroicons:puzzle-piece-20-solid',
-    title: 'Joint Ventures & Strategic Alliances',
-    description: 'Create strategic partnerships and alliances that multiply your reach and accelerate business growth through collaborative opportunities.',
-    benefits: [
-      'Partner identification and vetting',
-      'Deal structure and negotiation',
-      'Collaboration strategy development',
-      'Risk assessment and mitigation',
-      'Joint marketing initiatives',
-      'Revenue sharing models',
-    ],
-    color: 'primary',
-  },
-  {
-    id: 'optimization',
-    icon: 'heroicons:cog-8-tooth-20-solid',
-    title: 'Business Optimization',
-    description: 'Streamline operations, eliminate inefficiencies, and maximize profitability through continuous improvement methodologies and data-driven decisions.',
-    benefits: [
-      'Process audit and improvement',
-      'Operational efficiency analysis',
-      'Cost reduction strategies',
-      'Workflow automation',
-      'Team productivity enhancement',
-      'Performance management systems',
-    ],
-    color: 'secondary',
   },
 ]
-
-const process = [
-  {
-    step: 1,
-    title: 'Discovery Call',
-    description: 'We start with a free consultation to understand your business, challenges, and goals.',
-  },
-  {
-    step: 2,
-    title: 'Strategic Analysis',
-    description: 'I conduct a thorough analysis of your current situation and identify opportunities for growth.',
-  },
-  {
-    step: 3,
-    title: 'Custom Strategy',
-    description: 'Together, we develop a tailored action plan with clear milestones and measurable outcomes.',
-  },
-  {
-    step: 4,
-    title: 'Implementation',
-    description: 'I provide hands-on support as you implement the strategy, adjusting as needed.',
-  },
-  {
-    step: 5,
-    title: 'Optimization',
-    description: 'We continuously monitor results and optimize for maximum impact and ROI.',
-  },
-]
-
-const colorClasses = {
-  primary: {
-    bg: 'bg-primary-100',
-    icon: 'text-primary-600',
-    border: 'border-primary-200',
-  },
-  secondary: {
-    bg: 'bg-secondary-100',
-    icon: 'text-secondary-600',
-    border: 'border-secondary-200',
-  },
-}
 </script>
 
 <template>
@@ -120,80 +46,82 @@ const colorClasses = {
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span class="inline-block px-4 py-1.5 bg-white/10 text-primary-300 text-sm font-semibold rounded-full mb-6">
-          Services
+          Portfolio
         </span>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white mb-6">
-          Comprehensive Solutions for
+          My Recent
           <span class="block mt-2 bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-            Business Growth
+            Projects
           </span>
         </h1>
         <p class="text-xl text-dark-300 max-w-2xl mx-auto">
-          From strategy development to implementation, I provide the expertise and support you need to achieve sustainable, long-term success.
+          Real-world solutions I've built for businesses — from AI automation to full-stack web platforms.
         </p>
       </div>
     </section>
 
-    <!-- Services Detail -->
+    <!-- Projects -->
     <section class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-24">
+        <div class="space-y-32">
           <div
-            v-for="(service, index) in services"
-            :key="service.id"
-            :id="service.id"
+            v-for="(project, index) in projects"
+            :key="project.id"
+            :id="project.id"
             class="scroll-mt-24"
           >
             <div
-              class="grid lg:grid-cols-2 gap-12 items-center"
-              :class="index % 2 === 1 ? 'lg:flex-row-reverse' : ''"
+              class="grid lg:grid-cols-2 gap-16 items-center"
             >
-              <!-- Content -->
+              <!-- Image -->
               <div :class="index % 2 === 1 ? 'lg:order-2' : ''">
-                <div
-                  class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                  :class="colorClasses[service.color].bg"
-                >
-                  <Icon
-                    :name="service.icon"
-                    class="w-8 h-8"
-                    :class="colorClasses[service.color].icon"
-                  />
-                </div>
-                <h2 class="text-3xl font-bold text-dark-900 mb-4">
-                  {{ service.title }}
-                </h2>
-                <p class="text-lg text-dark-500 mb-8 leading-relaxed">
-                  {{ service.description }}
-                </p>
-
-                <!-- Benefits -->
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div
-                    v-for="benefit in service.benefits"
-                    :key="benefit"
-                    class="flex items-start space-x-3"
-                  >
-                    <Icon
-                      name="heroicons:check-circle-20-solid"
-                      class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                <div class="relative group">
+                  <!-- Decorative background blob -->
+                  <div class="absolute -inset-4 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-[2rem] opacity-40 blur-xl group-hover:opacity-60 transition-opacity duration-500"></div>
+                  <!-- Image with styled frame -->
+                  <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-dark-200/50">
+                    <img
+                      :src="project.image"
+                      :alt="project.title"
+                      class="w-full object-cover"
                     />
-                    <span class="text-dark-600">{{ benefit }}</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Visual -->
+              <!-- Content -->
               <div :class="index % 2 === 1 ? 'lg:order-1' : ''">
-                <div
-                  class="aspect-square rounded-3xl flex items-center justify-center"
-                  :class="colorClasses[service.color].bg"
-                >
-                  <Icon
-                    :name="service.icon"
-                    class="w-32 h-32"
-                    :class="colorClasses[service.color].icon"
-                  />
+                <h2 class="text-3xl font-bold text-dark-900 mb-4">
+                  {{ project.title }}
+                </h2>
+                <p class="text-lg text-dark-500 mb-4 leading-relaxed">
+                  {{ project.description }}
+                </p>
+                <p class="text-dark-500 mb-8 leading-relaxed whitespace-pre-line">
+                  {{ project.details }}
+                </p>
+
+                <!-- Tech Stack -->
+                <div class="mb-6">
+                  <h4 class="text-sm font-semibold text-dark-400 uppercase tracking-wider mb-4">Tech Stack</h4>
+                  <div class="flex flex-wrap gap-3">
+                    <div
+                      v-for="tech in project.stack"
+                      :key="tech.name"
+                      class="group/tech relative"
+                    >
+                      <div
+                        class="w-14 h-14 rounded-xl bg-gradient-to-br shadow-lg flex items-center justify-center text-white font-bold text-sm transform transition-all duration-300 hover:scale-110 hover:shadow-xl hover:-translate-y-1 cursor-default"
+                        :class="tech.color"
+                      >
+                        {{ tech.letter }}
+                      </div>
+                      <!-- Tooltip -->
+                      <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover/tech:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                        {{ tech.name }}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -201,48 +129,5 @@ const colorClasses = {
         </div>
       </div>
     </section>
-
-    <!-- Process -->
-    <section class="py-24 bg-dark-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
-            Process
-          </span>
-          <h2 class="section-title mb-4">
-            How We
-            <span class="gradient-text">Work Together</span>
-          </h2>
-          <p class="section-subtitle mx-auto">
-            A proven process designed to deliver results efficiently and effectively.
-          </p>
-        </div>
-
-        <div class="relative">
-          <!-- Timeline Line -->
-          <div class="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-dark-200"></div>
-
-          <div class="grid md:grid-cols-5 gap-8">
-            <div
-              v-for="item in process"
-              :key="item.step"
-              class="relative"
-            >
-              <!-- Step Number -->
-              <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10">
-                {{ item.step }}
-              </div>
-              <div class="text-center">
-                <h3 class="font-bold text-dark-900 mb-2">{{ item.title }}</h3>
-                <p class="text-sm text-dark-500">{{ item.description }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <SectionsCTASection />
   </div>
 </template>
