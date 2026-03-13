@@ -68,19 +68,19 @@ const timeline = [
                 <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
               </div>
               <h2 class="text-2xl font-bold text-white text-center mb-2">Anatolii Petrenko</h2>
-              <p class="text-primary-300 text-center mb-6">Business Growth Strategist</p>
+              <p class="text-primary-300 text-center mb-6">AI Full-Stack Developer</p>
               <div class="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div class="text-2xl font-bold text-white">15+</div>
+                  <div class="text-2xl font-bold text-white">10+</div>
                   <div class="text-sm text-dark-400">Years</div>
                 </div>
                 <div>
-                  <div class="text-2xl font-bold text-white">500+</div>
-                  <div class="text-sm text-dark-400">Clients</div>
+                  <div class="text-2xl font-bold text-white">50+</div>
+                  <div class="text-sm text-dark-400">Projects</div>
                 </div>
                 <div>
-                  <div class="text-2xl font-bold text-white">10x</div>
-                  <div class="text-sm text-dark-400">Avg ROI</div>
+                  <div class="text-2xl font-bold text-white">6+</div>
+                  <div class="text-sm text-dark-400">Tech Stacks</div>
                 </div>
               </div>
             </div>
