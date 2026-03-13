@@ -1,34 +1,26 @@
 <script setup lang="ts">
 const testimonials = [
   {
-    content: "Working with Anatolii transformed our referral strategy completely. We went from struggling to get word-of-mouth leads to having a systematic approach that generates consistent, high-quality referrals every month.",
-    author: "Sarah Johnson",
-    role: "CEO, Growth Marketing Co.",
-    avatar: "SJ",
+    content: "Anatolii built our e-commerce platform from scratch and it's been running smoothly for over a year now. He understood our requirements quickly, communicated clearly throughout the process, and delivered on time. The admin panel he built saves us hours every week.",
+    author: "David Park",
+    role: "Founder, StyleVault",
+    avatar: "DP",
     rating: 5,
   },
   {
-    content: "Anatolii's joint venture expertise helped us form partnerships that would have taken years to develop on our own. Our revenue increased by 300% in the first year of implementing his strategies.",
-    author: "Michael Chen",
-    role: "Founder, TechScale Solutions",
-    avatar: "MC",
+    content: "We needed an AI chatbot integrated with WhatsApp for customer support. Anatolii not only delivered exactly what we asked for, but also suggested improvements we hadn't thought of. Response time dropped from hours to seconds, and our support team can now focus on complex issues.",
+    author: "Laura Kim",
+    role: "Operations Manager, FreshDesk Co.",
+    avatar: "LK",
     rating: 5,
   },
   {
-    content: "The continuous improvement framework Anatolii introduced to our business has become the backbone of our operations. We're more efficient, profitable, and our team is more aligned than ever.",
-    author: "Emily Rodriguez",
-    role: "Director, Innovate Partners",
-    avatar: "ER",
+    content: "Anatolii helped us migrate our legacy CRM to a modern stack with AI-powered lead scoring. The transition was smooth, and the new system is significantly faster. He was patient with our team during onboarding and always available when we had questions.",
+    author: "James Mitchell",
+    role: "CTO, GrowthPath Inc.",
+    avatar: "JM",
     rating: 5,
   },
-]
-
-const brands = [
-  'Company A',
-  'Company B',
-  'Company C',
-  'Company D',
-  'Company E',
 ]
 </script>
 
@@ -47,18 +39,18 @@ const brands = [
           Testimonials
         </span>
         <h2 class="text-4xl md:text-5xl font-bold font-display text-white tracking-tight mb-4">
-          Trusted by
+          What Clients
           <span class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-            Industry Leaders
+            Say
           </span>
         </h2>
         <p class="text-lg text-dark-300 max-w-2xl mx-auto">
-          See what entrepreneurs and business owners have to say about working with me.
+          Feedback from businesses I've worked with on real projects.
         </p>
       </div>
 
       <!-- Testimonials Grid -->
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="grid md:grid-cols-3 gap-8">
         <div
           v-for="(testimonial, index) in testimonials"
           :key="index"
@@ -88,20 +80,6 @@ const brands = [
               <div class="font-semibold text-white">{{ testimonial.author }}</div>
               <div class="text-sm text-dark-400">{{ testimonial.role }}</div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Trusted By -->
-      <div class="text-center">
-        <p class="text-dark-400 text-sm uppercase tracking-wider mb-8">Trusted by businesses worldwide</p>
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-          <div
-            v-for="brand in brands"
-            :key="brand"
-            class="text-dark-500 font-semibold text-lg opacity-50 hover:opacity-100 transition-opacity"
-          >
-            {{ brand }}
           </div>
         </div>
       </div>
