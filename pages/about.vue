@@ -4,26 +4,32 @@ useSeoMeta({
   description: 'Learn about Anatolii Petrenko, a business growth strategist helping mission-based entrepreneurs transform their businesses through continuous improvement.',
 })
 
+const showFullStory = ref(false)
+
 const timeline = [
   {
     year: '2012',
     title: 'Entered King Daniel University',
     description: 'Started studying computer science, building a strong foundation in software engineering.',
+    image: '/2.png',
   },
   {
     year: '2016',
     title: 'Frontend Developer',
     description: 'Graduated from King Daniel University and began working as a Frontend Developer, building user interfaces with modern web technologies.',
+    image: '/3.png',
   },
   {
     year: '2019',
     title: 'Backend Developer',
     description: 'Transitioned to Backend Development, designing server-side architectures, APIs, and database systems.',
+    image: '/4.png',
   },
   {
     year: '2023',
     title: 'AI Full-Stack Developer',
     description: 'Expanded into AI-powered full-stack development, building scalable web & mobile applications with modern AI technologies.',
+    image: '/5.png',
   },
 ]
 
@@ -125,54 +131,71 @@ const values = [
             I don't just write code. I design systems that are easy to manage, scalable to grow, and built for real users.
           </p>
 
-          <h3>My Expertise</h3>
+          <!-- Collapsed content -->
+          <div v-if="showFullStory">
+            <h3>My Expertise</h3>
 
-          <p class="leading-relaxed"><strong>1. Full-Stack Web Development</strong><br/>
-            Building robust and scalable platforms using React, Next.js, Node.js, PHP, and Python.</p>
+            <p class="leading-relaxed"><strong>1. Full-Stack Web Development</strong><br/>
+              Building robust and scalable platforms using React, Next.js, Node.js, PHP, and Python.</p>
 
-          <p class="leading-relaxed"><strong>2. Mobile App Development</strong><br/>
-            Cross-platform iOS & Android apps using Flutter and React Native with user-focused UI/UX.</p>
+            <p class="leading-relaxed"><strong>2. Mobile App Development</strong><br/>
+              Cross-platform iOS & Android apps using Flutter and React Native with user-focused UI/UX.</p>
 
-          <p class="leading-relaxed"><strong>3. AI Systems & Automation</strong><br/>
-            GPT-powered chatbots, AI agents for workflow automation, RAG-based knowledge systems, AI content generation platforms.</p>
+            <p class="leading-relaxed"><strong>3. AI Systems & Automation</strong><br/>
+              GPT-powered chatbots, AI agents for workflow automation, RAG-based knowledge systems, AI content generation platforms.</p>
 
-          <p class="leading-relaxed"><strong>4. Automation & Integrations</strong><br/>
-            n8n and Zapier workflow automation, WhatsApp & Instagram API integrations, Payment gateways, CRM, ERP system integrations.</p>
+            <p class="leading-relaxed"><strong>4. Automation & Integrations</strong><br/>
+              n8n and Zapier workflow automation, WhatsApp & Instagram API integrations, Payment gateways, CRM, ERP system integrations.</p>
 
-          <h3>What I Deliver</h3>
+            <h3>What I Deliver</h3>
 
-          <ul>
-            <li>Clear understanding of business needs</li>
-            <li>Clean, maintainable, and scalable architecture</li>
-            <li>Fast and reliable delivery</li>
-            <li>Solutions that reduce operational costs</li>
-            <li>MVP development for startups and scalable systems for enterprises</li>
-          </ul>
+            <ul>
+              <li>Clear understanding of business needs</li>
+              <li>Clean, maintainable, and scalable architecture</li>
+              <li>Fast and reliable delivery</li>
+              <li>Solutions that reduce operational costs</li>
+              <li>MVP development for startups and scalable systems for enterprises</li>
+            </ul>
 
-          <p class="leading-relaxed">If you are:</p>
-          <ul>
-            <li>Launching a startup and need a technical partner</li>
-            <li>Looking to automate business processes with AI</li>
-            <li>Building a SaaS platform</li>
-            <li>Modernizing legacy systems</li>
-            <li>Creating high-performance mobile apps</li>
-          </ul>
+            <p class="leading-relaxed">If you are:</p>
+            <ul>
+              <li>Launching a startup and need a technical partner</li>
+              <li>Looking to automate business processes with AI</li>
+              <li>Building a SaaS platform</li>
+              <li>Modernizing legacy systems</li>
+              <li>Creating high-performance mobile apps</li>
+            </ul>
 
-          <p class="leading-relaxed">I can help you turn your vision into a reliable product.</p>
+            <p class="leading-relaxed">I can help you turn your vision into a reliable product.</p>
 
-          <h3>Work Style</h3>
+            <h3>Work Style</h3>
 
-          <ul>
-            <li>Clear and fast communication</li>
-            <li>Respect for deadlines</li>
-            <li>Problem-solving mindset</li>
-            <li>Long-term partnership focus</li>
-            <li>Security and performance-oriented development</li>
-          </ul>
+            <ul>
+              <li>Clear and fast communication</li>
+              <li>Respect for deadlines</li>
+              <li>Problem-solving mindset</li>
+              <li>Long-term partnership focus</li>
+              <li>Security and performance-oriented development</li>
+            </ul>
 
-          <p class="leading-relaxed">
-            My goal is to become a trusted technical partner who helps your business grow through smart technology.
-          </p>
+            <p class="leading-relaxed">
+              My goal is to become a trusted technical partner who helps your business grow through smart technology.
+            </p>
+          </div>
+
+          <!-- Toggle Button -->
+          <div class="text-center mt-8 not-prose">
+            <button
+              @click="showFullStory = !showFullStory"
+              class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              {{ showFullStory ? 'Show Less' : 'More Detail' }}
+              <Icon
+                :name="showFullStory ? 'heroicons:chevron-up-20-solid' : 'heroicons:chevron-down-20-solid'"
+                class="w-5 h-5 ml-2"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -234,12 +257,15 @@ const values = [
               <!-- Content -->
               <div class="ml-20 md:ml-0 md:w-1/2 md:px-12">
                 <div
-                  class="bg-white rounded-xl p-6 shadow-lg border border-dark-100"
+                  class="bg-white rounded-xl overflow-hidden shadow-lg border border-dark-100"
                   :class="index % 2 === 0 ? 'md:text-right' : 'md:text-left'"
                 >
-                  <span class="text-primary-600 font-bold text-lg">{{ item.year }}</span>
-                  <h3 class="text-xl font-bold text-dark-900 mt-1 mb-2">{{ item.title }}</h3>
-                  <p class="text-dark-500">{{ item.description }}</p>
+                  <img :src="item.image" :alt="item.title" class="w-full h-48 object-cover" />
+                  <div class="p-6">
+                    <span class="text-primary-600 font-bold text-lg">{{ item.year }}</span>
+                    <h3 class="text-xl font-bold text-dark-900 mt-1 mb-2">{{ item.title }}</h3>
+                    <p class="text-dark-500">{{ item.description }}</p>
+                  </div>
                 </div>
               </div>
             </div>
