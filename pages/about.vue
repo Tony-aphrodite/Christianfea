@@ -33,28 +33,6 @@ const timeline = [
   },
 ]
 
-const values = [
-  {
-    icon: 'heroicons:light-bulb-20-solid',
-    title: 'Continuous Improvement',
-    description: 'Always seeking ways to enhance, optimize, and grow.',
-  },
-  {
-    icon: 'heroicons:shield-check-20-solid',
-    title: 'Integrity First',
-    description: 'Building trust through honest, transparent relationships.',
-  },
-  {
-    icon: 'heroicons:users-20-solid',
-    title: 'Collaboration',
-    description: 'Working together to achieve extraordinary results.',
-  },
-  {
-    icon: 'heroicons:chart-bar-20-solid',
-    title: 'Results Driven',
-    description: 'Focused on measurable outcomes that matter.',
-  },
-]
 </script>
 
 <template>
@@ -195,34 +173,6 @@ const values = [
                 class="w-5 h-5 ml-2"
               />
             </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Values -->
-    <section class="py-24 bg-dark-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
-            Values
-          </span>
-          <h2 class="section-title mb-4">
-            What I <span class="gradient-text">Stand For</span>
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div
-            v-for="value in values"
-            :key="value.title"
-            class="text-center"
-          >
-            <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <Icon :name="value.icon" class="w-8 h-8 text-primary-600" />
-            </div>
-            <h3 class="text-xl font-bold text-dark-900 mb-2">{{ value.title }}</h3>
-            <p class="text-dark-500">{{ value.description }}</p>
           </div>
         </div>
       </div>
