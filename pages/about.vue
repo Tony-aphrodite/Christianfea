@@ -78,7 +78,7 @@ const values = [
               </span>
             </h1>
             <p class="text-xl text-dark-300 leading-relaxed">
-              A continual improvement strategist dedicated to helping mission-based entrepreneurs transform themselves and the people they influence.
+              AI Full-Stack Developer for Web & Mobile Apps
             </p>
           </div>
 
@@ -119,19 +119,64 @@ const values = [
           </h2>
 
           <p class="text-xl leading-relaxed">
-            For over 15 years, I've been on a mission to help entrepreneurs unlock their full potential. My journey began with a simple observation: most businesses fail not because of bad products or services, but because they lack the strategic partnerships and marketing systems to reach the right customers.
+            Hello! I'm a Full-Stack AI Developer specialized in building scalable web and mobile applications that turn ideas into profitable digital products.
           </p>
 
           <p class="leading-relaxed">
-            This insight led me to develop a unique approach that combines referral marketing, joint ventures, and continuous improvement methodologies. I believe that sustainable growth comes from building genuine relationships—both with customers and strategic partners.
+            I combine strong engineering skills with modern AI technologies to help businesses automate processes, improve user experience, and launch powerful platforms faster.
           </p>
 
           <p class="leading-relaxed">
-            Today, I work with mission-based entrepreneurs who are ready to transform not just their businesses, but themselves. Together, we create strategies that generate consistent leads, build lasting partnerships, and establish systems for ongoing optimization.
+            I don't just write code. I design systems that are easy to manage, scalable to grow, and built for real users.
           </p>
 
+          <h3>My Expertise</h3>
+
+          <p class="leading-relaxed"><strong>1. Full-Stack Web Development</strong><br/>
+            Building robust and scalable platforms using React, Next.js, Node.js, PHP, and Python.</p>
+
+          <p class="leading-relaxed"><strong>2. Mobile App Development</strong><br/>
+            Cross-platform iOS & Android apps using Flutter and React Native with user-focused UI/UX.</p>
+
+          <p class="leading-relaxed"><strong>3. AI Systems & Automation</strong><br/>
+            GPT-powered chatbots, AI agents for workflow automation, RAG-based knowledge systems, AI content generation platforms.</p>
+
+          <p class="leading-relaxed"><strong>4. Automation & Integrations</strong><br/>
+            n8n and Zapier workflow automation, WhatsApp & Instagram API integrations, Payment gateways, CRM, ERP system integrations.</p>
+
+          <h3>What I Deliver</h3>
+
+          <ul>
+            <li>Clear understanding of business needs</li>
+            <li>Clean, maintainable, and scalable architecture</li>
+            <li>Fast and reliable delivery</li>
+            <li>Solutions that reduce operational costs</li>
+            <li>MVP development for startups and scalable systems for enterprises</li>
+          </ul>
+
+          <p class="leading-relaxed">If you are:</p>
+          <ul>
+            <li>Launching a startup and need a technical partner</li>
+            <li>Looking to automate business processes with AI</li>
+            <li>Building a SaaS platform</li>
+            <li>Modernizing legacy systems</li>
+            <li>Creating high-performance mobile apps</li>
+          </ul>
+
+          <p class="leading-relaxed">I can help you turn your vision into a reliable product.</p>
+
+          <h3>Work Style</h3>
+
+          <ul>
+            <li>Clear and fast communication</li>
+            <li>Respect for deadlines</li>
+            <li>Problem-solving mindset</li>
+            <li>Long-term partnership focus</li>
+            <li>Security and performance-oriented development</li>
+          </ul>
+
           <p class="leading-relaxed">
-            What sets my approach apart is the focus on continuous improvement. Business isn't a destination—it's a journey of constant growth and adaptation. I help my clients build the mindset and systems they need to thrive in any market condition.
+            My goal is to become a trusted technical partner who helps your business grow through smart technology.
           </p>
         </div>
       </div>
