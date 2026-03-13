@@ -4,6 +4,12 @@ useSeoMeta({
   description: 'Explore my portfolio of AI automation systems and web development projects.',
 })
 
+const expandedProject = ref<string | null>(null)
+
+function toggleProject(id: string) {
+  expandedProject.value = expandedProject.value === id ? null : id
+}
+
 const projects = [
   {
     id: 'ai-automation',
@@ -12,10 +18,10 @@ const projects = [
     details: 'From workflow automation to intelligent chatbots and system integrations, I design solutions that streamline repetitive tasks and improve operational efficiency. Whether you need automated customer support, lead management systems, data processing pipelines, or API integrations, I can build reliable and scalable automation that works 24/7.',
     image: '/serve.png',
     stack: [
-      { name: 'PHP', color: 'from-indigo-500 to-indigo-700', letter: 'PHP' },
-      { name: 'Node.js', color: 'from-green-500 to-green-700', letter: 'N' },
-      { name: 'API', color: 'from-purple-500 to-purple-700', letter: 'API' },
-      { name: 'JavaScript', color: 'from-yellow-400 to-yellow-600', letter: 'JS' },
+      { name: 'PHP', icon: 'logos:php' },
+      { name: 'Node.js', icon: 'logos:nodejs-icon' },
+      { name: 'API', icon: 'heroicons:globe-alt-20-solid' },
+      { name: 'JavaScript', icon: 'logos:javascript' },
     ],
   },
   {
@@ -25,11 +31,11 @@ const projects = [
     details: 'This fashion advertisement blends luxurious aesthetics with contemporary elegance, showcasing statement evening dresses that radiate confidence and charm. The sparkling textures, refined silhouettes, and premium color palette create a high-end visual identity tailored for modern women who embrace style and individuality.\n\nThe balanced composition, soft lighting effects, and glamorous atmosphere enhance the premium feel of the collection, making it ideal for fashion brands seeking a strong and memorable presence across digital platforms, social media campaigns, and online stores.\n\nDesigned to attract attention instantly, this campaign reflects elegance, confidence, and modern luxury in every detail.',
     image: '/clothes.png',
     stack: [
-      { name: 'PHP', color: 'from-indigo-500 to-indigo-700', letter: 'PHP' },
-      { name: 'Laravel', color: 'from-red-500 to-red-700', letter: 'L' },
-      { name: 'MySQL', color: 'from-blue-500 to-blue-700', letter: 'My' },
-      { name: 'AWS', color: 'from-orange-400 to-orange-600', letter: 'AWS' },
-      { name: 'Vue.js', color: 'from-emerald-500 to-emerald-700', letter: 'V' },
+      { name: 'PHP', icon: 'logos:php' },
+      { name: 'Laravel', icon: 'logos:laravel' },
+      { name: 'MySQL', icon: 'logos:mysql' },
+      { name: 'AWS', icon: 'logos:aws' },
+      { name: 'Vue.js', icon: 'logos:vue' },
     ],
   },
 ]
@@ -70,20 +76,16 @@ const projects = [
             :id="project.id"
             class="scroll-mt-24"
           >
-            <div
-              class="grid lg:grid-cols-2 gap-16 items-center"
-            >
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
               <!-- Image -->
               <div :class="index % 2 === 1 ? 'lg:order-2' : ''">
                 <div class="relative group">
-                  <!-- Decorative background blob -->
                   <div class="absolute -inset-4 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-[2rem] opacity-40 blur-xl group-hover:opacity-60 transition-opacity duration-500"></div>
-                  <!-- Image with styled frame -->
-                  <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-dark-200/50">
+                  <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-dark-200/50 aspect-[4/3]">
                     <img
                       :src="project.image"
                       :alt="project.title"
-                      class="w-full object-cover"
+                      class="w-full h-full object-cover object-top"
                     />
                   </div>
                 </div>
@@ -97,12 +99,27 @@ const projects = [
                 <p class="text-lg text-dark-500 mb-4 leading-relaxed">
                   {{ project.description }}
                 </p>
-                <p class="text-dark-500 mb-8 leading-relaxed whitespace-pre-line">
-                  {{ project.details }}
-                </p>
+
+                <!-- Expandable details -->
+                <div v-if="expandedProject === project.id" class="mb-6">
+                  <p class="text-dark-500 leading-relaxed whitespace-pre-line">
+                    {{ project.details }}
+                  </p>
+                </div>
+
+                <button
+                  @click="toggleProject(project.id)"
+                  class="inline-flex items-center px-5 py-2.5 mb-8 text-sm font-semibold text-primary-600 bg-primary-50 rounded-xl hover:bg-primary-100 transition-all duration-300"
+                >
+                  {{ expandedProject === project.id ? 'Show Less' : 'More Detail' }}
+                  <Icon
+                    :name="expandedProject === project.id ? 'heroicons:chevron-up-20-solid' : 'heroicons:chevron-down-20-solid'"
+                    class="w-4 h-4 ml-1.5"
+                  />
+                </button>
 
                 <!-- Tech Stack -->
-                <div class="mb-6">
+                <div>
                   <h4 class="text-sm font-semibold text-dark-400 uppercase tracking-wider mb-4">Tech Stack</h4>
                   <div class="flex flex-wrap gap-3">
                     <div
@@ -110,14 +127,10 @@ const projects = [
                       :key="tech.name"
                       class="group/tech relative"
                     >
-                      <div
-                        class="w-14 h-14 rounded-xl bg-gradient-to-br shadow-lg flex items-center justify-center text-white font-bold text-sm transform transition-all duration-300 hover:scale-110 hover:shadow-xl hover:-translate-y-1 cursor-default"
-                        :class="tech.color"
-                      >
-                        {{ tech.letter }}
+                      <div class="w-14 h-14 bg-white rounded-2xl shadow-lg border border-dark-100 flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 cursor-default">
+                        <Icon :name="tech.icon" class="w-8 h-8" />
                       </div>
-                      <!-- Tooltip -->
-                      <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover/tech:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                      <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-900 text-white text-xs px-2.5 py-1 rounded-lg opacity-0 group-hover/tech:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                         {{ tech.name }}
                       </div>
                     </div>

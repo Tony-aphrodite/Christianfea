@@ -5,10 +5,10 @@ const projects = [
     description: 'Building powerful AI automation systems — from workflow automation to intelligent chatbots and API integrations.',
     image: '/serve.png',
     stack: [
-      { name: 'PHP', color: 'from-indigo-500 to-indigo-700', letter: 'PHP' },
-      { name: 'Node.js', color: 'from-green-500 to-green-700', letter: 'N' },
-      { name: 'API', color: 'from-purple-500 to-purple-700', letter: 'API' },
-      { name: 'JavaScript', color: 'from-yellow-400 to-yellow-600', letter: 'JS' },
+      { name: 'PHP', icon: 'logos:php' },
+      { name: 'Node.js', icon: 'logos:nodejs-icon' },
+      { name: 'API', icon: 'heroicons:globe-alt-20-solid' },
+      { name: 'JavaScript', icon: 'logos:javascript' },
     ],
   },
   {
@@ -16,11 +16,11 @@ const projects = [
     description: 'A captivating fashion e-commerce platform with luxurious aesthetics and high-end visual identity.',
     image: '/clothes.png',
     stack: [
-      { name: 'PHP', color: 'from-indigo-500 to-indigo-700', letter: 'PHP' },
-      { name: 'Laravel', color: 'from-red-500 to-red-700', letter: 'L' },
-      { name: 'MySQL', color: 'from-blue-500 to-blue-700', letter: 'My' },
-      { name: 'AWS', color: 'from-orange-400 to-orange-600', letter: 'AWS' },
-      { name: 'Vue.js', color: 'from-emerald-500 to-emerald-700', letter: 'V' },
+      { name: 'PHP', icon: 'logos:php' },
+      { name: 'Laravel', icon: 'logos:laravel' },
+      { name: 'MySQL', icon: 'logos:mysql' },
+      { name: 'AWS', icon: 'logos:aws' },
+      { name: 'Vue.js', icon: 'logos:vue' },
     ],
   },
 ]
@@ -52,11 +52,11 @@ const projects = [
           :style="{ animationDelay: `${index * 100}ms` }"
         >
           <!-- Image -->
-          <div class="aspect-video overflow-hidden">
+          <div class="aspect-[4/3] overflow-hidden">
             <img
               :src="project.image"
               :alt="project.title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
@@ -76,13 +76,9 @@ const projects = [
                 :key="tech.name"
                 class="group/tech relative"
               >
-                <div
-                  class="w-10 h-10 rounded-lg bg-gradient-to-br shadow-md flex items-center justify-center text-white font-bold text-xs transform transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 cursor-default"
-                  :class="tech.color"
-                >
-                  {{ tech.letter }}
+                <div class="w-10 h-10 bg-white rounded-xl shadow-md border border-dark-100 flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 hover:border-primary-200 cursor-default">
+                  <Icon :name="tech.icon" class="w-6 h-6" />
                 </div>
-                <!-- Tooltip -->
                 <div class="absolute -top-7 left-1/2 -translate-x-1/2 bg-dark-900 text-white text-xs px-2 py-0.5 rounded opacity-0 group-hover/tech:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                   {{ tech.name }}
                 </div>
