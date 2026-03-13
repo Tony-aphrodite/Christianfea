@@ -260,7 +260,7 @@ const values = [
                   class="bg-white rounded-xl overflow-hidden shadow-lg border border-dark-100"
                   :class="index % 2 === 0 ? 'md:text-right' : 'md:text-left'"
                 >
-                  <img :src="item.image" :alt="item.title" class="w-full h-48 object-cover" />
+                  <img :src="item.image" :alt="item.title" class="w-full h-72 object-cover object-top" />
                   <div class="p-6">
                     <span class="text-primary-600 font-bold text-lg">{{ item.year }}</span>
                     <h3 class="text-xl font-bold text-dark-900 mt-1 mb-2">{{ item.title }}</h3>
