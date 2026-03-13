@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const stats = [
-  { value: '15+', label: 'Years Experience' },
-  { value: '500+', label: 'Clients Helped' },
-  { value: '10x', label: 'Average ROI' },
+  { value: '10+', label: 'Years Experience' },
+  { value: '50+', label: 'Projects Delivered' },
+  { value: '6+', label: 'Tech Stacks' },
 ]
 </script>
 
@@ -27,27 +27,27 @@ const stats = [
         <div class="text-center lg:text-left">
           <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
             <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-            <span class="text-sm text-white/80">Available for new clients</span>
+            <span class="text-sm text-white/80">Available for new projects</span>
           </div>
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Transform Your Business With
+            Building Digital Products With
             <span class="block mt-2 bg-gradient-to-r from-primary-400 via-primary-300 to-secondary-400 bg-clip-text text-transparent">
-              Continuous Improvement
+              AI & Modern Tech
             </span>
           </h1>
 
           <p class="text-lg sm:text-xl text-dark-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            I help mission-based entrepreneurs achieve sustainable growth through proven strategies in referral marketing, joint ventures, and business optimization.
+            I design and build scalable web & mobile applications powered by AI — from full-stack platforms and automation systems to intelligent chatbots and APIs.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
             <NuxtLink to="/contact" class="btn-primary text-lg px-8 py-4">
-              Schedule Free Consultation
-              <Icon name="heroicons:calendar-20-solid" class="w-5 h-5 ml-2" />
+              Start a Project
+              <Icon name="heroicons:rocket-launch-20-solid" class="w-5 h-5 ml-2" />
             </NuxtLink>
             <NuxtLink to="/services" class="btn-outline text-lg px-8 py-4">
-              Explore Services
+              View Portfolio
             </NuxtLink>
           </div>
 
@@ -71,28 +71,23 @@ const stats = [
                 </div>
                 <div>
                   <h3 class="text-xl font-bold text-white">Anatolii Petrenko</h3>
-                  <p class="text-primary-300">Business Growth Strategist</p>
+                  <p class="text-primary-300">AI Full-Stack Developer</p>
                 </div>
               </div>
 
               <div class="space-y-4">
                 <div class="flex items-center space-x-3 text-dark-300">
                   <Icon name="heroicons:check-badge-20-solid" class="w-5 h-5 text-green-400" />
-                  <span>Certified Business Consultant</span>
+                  <span>Full-Stack Web & Mobile Development</span>
                 </div>
                 <div class="flex items-center space-x-3 text-dark-300">
                   <Icon name="heroicons:check-badge-20-solid" class="w-5 h-5 text-green-400" />
-                  <span>Referral Marketing Expert</span>
+                  <span>AI Automation & Chatbot Systems</span>
                 </div>
                 <div class="flex items-center space-x-3 text-dark-300">
                   <Icon name="heroicons:check-badge-20-solid" class="w-5 h-5 text-green-400" />
-                  <span>Joint Venture Specialist</span>
+                  <span>API Integration & Cloud Deployment</span>
                 </div>
-              </div>
-
-              <!-- Floating Elements -->
-              <div class="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                Free Q&A Wednesdays
               </div>
             </div>
 
@@ -100,11 +95,11 @@ const stats = [
             <div class="absolute -bottom-8 -left-8 bg-white rounded-2xl p-4 shadow-xl animate-float" style="animation-delay: -2s;">
               <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
-                  <Icon name="heroicons:chart-bar-20-solid" class="w-5 h-5 text-primary-600" />
+                  <Icon name="heroicons:rocket-launch-20-solid" class="w-5 h-5 text-primary-600" />
                 </div>
                 <div>
-                  <div class="text-sm text-dark-500">Revenue Growth</div>
-                  <div class="text-lg font-bold text-dark-900">+247%</div>
+                  <div class="text-sm text-dark-500">Projects Shipped</div>
+                  <div class="text-lg font-bold text-dark-900">50+</div>
                 </div>
               </div>
             </div>
@@ -112,11 +107,11 @@ const stats = [
             <div class="absolute -top-8 -left-4 bg-white rounded-2xl p-4 shadow-xl animate-float" style="animation-delay: -4s;">
               <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 bg-secondary-100 rounded-xl flex items-center justify-center">
-                  <Icon name="heroicons:users-20-solid" class="w-5 h-5 text-secondary-600" />
+                  <Icon name="heroicons:code-bracket-20-solid" class="w-5 h-5 text-secondary-600" />
                 </div>
                 <div>
-                  <div class="text-sm text-dark-500">New Referrals</div>
-                  <div class="text-lg font-bold text-dark-900">+89/mo</div>
+                  <div class="text-sm text-dark-500">Tech Stacks</div>
+                  <div class="text-lg font-bold text-dark-900">React, Vue, Python</div>
                 </div>
               </div>
             </div>
