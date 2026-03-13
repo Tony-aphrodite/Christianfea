@@ -38,6 +38,37 @@ const projects = [
       { name: 'Vue.js', icon: 'logos:vue' },
     ],
   },
+  {
+    id: 'ai-crm',
+    title: 'AI Sales Automation CRM Platform',
+    description: 'A smart CRM system that uses AI to automate lead management, follow-ups, and sales pipeline tracking — helping businesses close deals faster with less manual effort.',
+    details: 'Problem:\nMany small and mid-sized businesses struggle with managing leads manually — missing follow-ups, losing track of deals, and wasting time on repetitive tasks.\n\nSolution:\nI built an AI-powered CRM platform that automates the entire sales pipeline — from lead capture to deal closing. The system uses AI to score leads, suggest next actions, auto-generate follow-up emails, and provide real-time sales analytics.\n\nKey Features:\n• AI-powered lead scoring and prioritization\n• Automated follow-up email and message sequences\n• Real-time sales pipeline dashboard\n• Integration with email, calendar, and messaging platforms\n• AI-generated sales reports and forecasting\n• Role-based access control for sales teams',
+    image: '/CRM.png',
+    stack: [
+      { name: 'React', icon: 'logos:react' },
+      { name: 'Next.js', icon: 'logos:nextjs-icon' },
+      { name: 'Python', icon: 'logos:python' },
+      { name: 'PostgreSQL', icon: 'logos:postgresql' },
+      { name: 'OpenAI', icon: 'simple-icons:openai' },
+      { name: 'n8n', icon: 'simple-icons:n8n' },
+      { name: 'AWS', icon: 'logos:aws' },
+    ],
+  },
+  {
+    id: 'ai-chatbot',
+    title: 'AI Customer Support Chatbot System',
+    description: 'An intelligent multi-channel chatbot that handles customer inquiries 24/7 — reducing support costs while improving response time and customer satisfaction.',
+    details: 'Problem:\nBusinesses receive hundreds of repetitive customer inquiries daily through multiple channels (website, WhatsApp, Instagram), leading to slow response times, high support costs, and frustrated customers.\n\nSolution:\nI developed an AI-powered chatbot system that connects to multiple communication channels and provides instant, accurate responses using natural language understanding. The system learns from past interactions and seamlessly escalates complex issues to human agents.\n\nKey Features:\n• Multi-channel support (Website, WhatsApp, Instagram, Facebook)\n• AI-powered natural language understanding with context memory\n• Automatic escalation to human agents for complex issues\n• Knowledge base integration for accurate answers\n• Real-time analytics dashboard for support metrics\n• Easy-to-use admin panel for managing responses and training the AI',
+    image: '/CTM.png',
+    stack: [
+      { name: 'React', icon: 'logos:react' },
+      { name: 'Node.js', icon: 'logos:nodejs-icon' },
+      { name: 'OpenAI', icon: 'simple-icons:openai' },
+      { name: 'WhatsApp API', icon: 'logos:whatsapp-icon' },
+      { name: 'PostgreSQL', icon: 'logos:postgresql' },
+      { name: 'Docker', icon: 'logos:docker-icon' },
+    ],
+  },
 ]
 </script>
 

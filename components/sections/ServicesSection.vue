@@ -23,6 +23,32 @@ const projects = [
       { name: 'Vue.js', icon: 'logos:vue' },
     ],
   },
+  {
+    title: 'AI Sales Automation CRM Platform',
+    description: 'A smart CRM system that uses AI to automate lead management, follow-ups, and sales pipeline tracking.',
+    image: '/CRM.png',
+    stack: [
+      { name: 'React', icon: 'logos:react' },
+      { name: 'Next.js', icon: 'logos:nextjs-icon' },
+      { name: 'Python', icon: 'logos:python' },
+      { name: 'PostgreSQL', icon: 'logos:postgresql' },
+      { name: 'OpenAI', icon: 'simple-icons:openai' },
+      { name: 'AWS', icon: 'logos:aws' },
+    ],
+  },
+  {
+    title: 'AI Customer Support Chatbot System',
+    description: 'An intelligent multi-channel chatbot that handles customer inquiries 24/7 with AI-powered responses.',
+    image: '/CTM.png',
+    stack: [
+      { name: 'React', icon: 'logos:react' },
+      { name: 'Node.js', icon: 'logos:nodejs-icon' },
+      { name: 'OpenAI', icon: 'simple-icons:openai' },
+      { name: 'WhatsApp API', icon: 'logos:whatsapp-icon' },
+      { name: 'PostgreSQL', icon: 'logos:postgresql' },
+      { name: 'Docker', icon: 'logos:docker-icon' },
+    ],
+  },
 ]
 </script>
 
