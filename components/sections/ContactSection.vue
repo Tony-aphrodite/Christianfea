@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: 'heroicons:envelope-20-solid',
     label: 'Email',
-    value: 'contact@christianfea.com',
-    href: 'mailto:contact@christianfea.com',
+    value: 'contact@anatoliipetrenko.com',
+    href: 'mailto:contact@anatoliipetrenko.com',
   },
   {
     icon: 'heroicons:calendar-20-solid',

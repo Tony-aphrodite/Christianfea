@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Blog | Christian Fea',
+  title: 'Blog | Anatolii Petrenko',
   description: 'Insights and strategies for business growth, referral marketing, joint ventures, and continuous improvement.',
 })
 

@@ -1,21 +1,21 @@
 <script setup lang="ts">
 const testimonials = [
   {
-    content: "Working with Christian transformed our referral strategy completely. We went from struggling to get word-of-mouth leads to having a systematic approach that generates consistent, high-quality referrals every month.",
+    content: "Working with Anatolii transformed our referral strategy completely. We went from struggling to get word-of-mouth leads to having a systematic approach that generates consistent, high-quality referrals every month.",
     author: "Sarah Johnson",
     role: "CEO, Growth Marketing Co.",
     avatar: "SJ",
     rating: 5,
   },
   {
-    content: "Christian's joint venture expertise helped us form partnerships that would have taken years to develop on our own. Our revenue increased by 300% in the first year of implementing his strategies.",
+    content: "Anatolii's joint venture expertise helped us form partnerships that would have taken years to develop on our own. Our revenue increased by 300% in the first year of implementing his strategies.",
     author: "Michael Chen",
     role: "Founder, TechScale Solutions",
     avatar: "MC",
     rating: 5,
   },
   {
-    content: "The continuous improvement framework Christian introduced to our business has become the backbone of our operations. We're more efficient, profitable, and our team is more aligned than ever.",
+    content: "The continuous improvement framework Anatolii introduced to our business has become the backbone of our operations. We're more efficient, profitable, and our team is more aligned than ever.",
     author: "Emily Rodriguez",
     role: "Director, Innovate Partners",
     avatar: "ER",

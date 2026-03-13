@@ -8,11 +8,11 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: 'Christian Fea | Business Growth Strategist',
+      title: 'Anatolii Petrenko | Business Growth Strategist',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Transform your business with proven strategies. Christian Fea helps mission-based entrepreneurs achieve continuous improvement and sustainable growth.' }
+        { name: 'description', content: 'Transform your business with proven strategies. Anatolii Petrenko helps mission-based entrepreneurs achieve continuous improvement and sustainable growth.' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -27,14 +27,8 @@ const highlights = [
           <div class="relative z-10">
             <!-- Main Image Container -->
             <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-3xl p-1">
-              <div class="bg-dark-100 rounded-3xl aspect-[4/5] flex items-center justify-center overflow-hidden">
-                <div class="text-center p-8">
-                  <div class="w-32 h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-5xl font-bold shadow-xl">
-                    CF
-                  </div>
-                  <h3 class="text-2xl font-bold text-dark-900 mb-2">Christian Fea</h3>
-                  <p class="text-dark-500">Business Growth Strategist</p>
-                </div>
+              <div class="bg-dark-100 rounded-3xl aspect-[4/5] overflow-hidden">
+                <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
               </div>
             </div>
 

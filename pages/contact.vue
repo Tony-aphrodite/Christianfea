@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Contact | Christian Fea',
-  description: 'Get in touch with Christian Fea. Schedule a free consultation or join the Wednesday Q&A sessions.',
+  title: 'Contact | Anatolii Petrenko',
+  description: 'Get in touch with Anatolii Petrenko. Schedule a free consultation or join the Wednesday Q&A sessions.',
 })
 
 const formData = reactive({
@@ -35,8 +35,8 @@ const contactMethods = [
     icon: 'heroicons:envelope-20-solid',
     title: 'Email',
     description: 'For general inquiries',
-    value: 'contact@christianfea.com',
-    href: 'mailto:contact@christianfea.com',
+    value: 'contact@anatoliipetrenko.com',
+    href: 'mailto:contact@anatoliipetrenko.com',
     action: 'Send Email',
   },
   {

@@ -41,11 +41,11 @@ function closeMenu() {
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center space-x-3 group" @click="closeMenu">
           <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-xl group-hover:shadow-primary-500/40 transition-all duration-300">
-            <span class="text-white font-bold text-xl">C</span>
+            <span class="text-white font-bold text-xl">A</span>
           </div>
           <div class="hidden sm:block">
-            <span class="text-xl font-bold text-dark-900">Christian</span>
-            <span class="text-xl font-bold text-primary-600">Fea</span>
+            <span class="text-xl font-bold text-dark-900">Anatolii</span>
+            <span class="text-xl font-bold text-primary-600">Petrenko</span>
           </div>
         </NuxtLink>
 

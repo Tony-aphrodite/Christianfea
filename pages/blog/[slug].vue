@@ -152,7 +152,7 @@ if (!post.value) {
 }
 
 useSeoMeta({
-  title: `${post.value.title} | Christian Fea`,
+  title: `${post.value.title} | Anatolii Petrenko`,
   description: post.value.excerpt,
 })
 
@@ -204,11 +204,11 @@ function formatDate(dateString: string) {
         </h1>
 
         <div class="flex items-center space-x-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white font-bold">
-            CF
+          <div class="w-12 h-12 rounded-full overflow-hidden">
+            <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
           </div>
           <div>
-            <div class="text-white font-medium">Christian Fea</div>
+            <div class="text-white font-medium">Anatolii Petrenko</div>
             <div class="text-dark-400 text-sm">{{ formatDate(post.date) }}</div>
           </div>
         </div>
@@ -261,16 +261,16 @@ function formatDate(dateString: string) {
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-2xl p-8 shadow-xl">
           <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-            <div class="w-24 h-24 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold flex-shrink-0">
-              CF
+            <div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0">
+              <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
             </div>
             <div>
-              <h3 class="text-xl font-bold text-dark-900 mb-2">About Christian Fea</h3>
+              <h3 class="text-xl font-bold text-dark-900 mb-2">About Anatolii Petrenko</h3>
               <p class="text-dark-500 mb-4">
-                Christian Fea is a business growth strategist who helps mission-based entrepreneurs achieve sustainable growth through referral marketing, joint ventures, and continuous improvement methodologies.
+                Anatolii Petrenko is a business growth strategist who helps mission-based entrepreneurs achieve sustainable growth through referral marketing, joint ventures, and continuous improvement methodologies.
               </p>
               <NuxtLink to="/about" class="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center">
-                Learn more about Christian
+                Learn more about Anatolii
                 <Icon name="heroicons:arrow-right-20-solid" class="w-4 h-4 ml-1" />
               </NuxtLink>
             </div>

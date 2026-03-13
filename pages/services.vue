@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Services | Christian Fea',
+  title: 'Services | Anatolii Petrenko',
   description: 'Explore comprehensive business consulting services including growth strategy, referral marketing, joint ventures, and business optimization.',
 })
 
