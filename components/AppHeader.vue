@@ -62,14 +62,6 @@ function closeMenu() {
           </NuxtLink>
         </div>
 
-        <!-- CTA Button -->
-        <div class="hidden md:flex items-center space-x-4">
-          <NuxtLink to="/contact" class="btn-primary">
-            Book a Call
-            <Icon name="heroicons:arrow-right-20-solid" class="w-5 h-5 ml-2" />
-          </NuxtLink>
-        </div>
-
         <!-- Mobile Menu Button -->
         <button
           class="md:hidden p-2 rounded-lg hover:bg-dark-100 transition-colors"
@@ -107,12 +99,6 @@ function closeMenu() {
             >
               {{ link.name }}
             </NuxtLink>
-            <div class="pt-4 border-t border-dark-100">
-              <NuxtLink to="/contact" class="btn-primary w-full" @click="closeMenu">
-                Book a Call
-                <Icon name="heroicons:arrow-right-20-solid" class="w-5 h-5 ml-2" />
-              </NuxtLink>
-            </div>
           </div>
         </div>
       </Transition>
