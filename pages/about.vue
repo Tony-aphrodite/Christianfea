@@ -6,29 +6,24 @@ useSeoMeta({
 
 const timeline = [
   {
-    year: '2009',
-    title: 'Started Consulting Journey',
-    description: 'Began helping small businesses optimize their operations and marketing strategies.',
-  },
-  {
     year: '2012',
-    title: 'Referral Marketing Focus',
-    description: 'Developed specialized expertise in word-of-mouth and referral marketing systems.',
+    title: 'Entered King Daniel University',
+    description: 'Started studying computer science, building a strong foundation in software engineering.',
   },
   {
-    year: '2015',
-    title: 'Joint Venture Mastery',
-    description: 'Expanded into strategic partnership development and joint venture facilitation.',
+    year: '2016',
+    title: 'Frontend Developer',
+    description: 'Graduated from King Daniel University and began working as a Frontend Developer, building user interfaces with modern web technologies.',
   },
   {
-    year: '2018',
-    title: 'Continuous Improvement Framework',
-    description: 'Created a comprehensive methodology for sustainable business growth.',
+    year: '2019',
+    title: 'Backend Developer',
+    description: 'Transitioned to Backend Development, designing server-side architectures, APIs, and database systems.',
   },
   {
-    year: '2024',
-    title: 'AI Integration',
-    description: 'Incorporating AI tools and strategies to help clients stay ahead of the curve.',
+    year: '2023',
+    title: 'AI Full-Stack Developer',
+    description: 'Expanded into AI-powered full-stack development, building scalable web & mobile applications with modern AI technologies.',
   },
 ]
 
@@ -218,7 +213,7 @@ const values = [
             Journey
           </span>
           <h2 class="section-title mb-4">
-            The <span class="gradient-text">Path</span> So Far
+            My <span class="gradient-text">Experience</span>
           </h2>
         </div>
 
