@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Contact | Anatolii Petrenko',
-  description: 'Get in touch with Anatolii Petrenko. Schedule a free consultation or join the Wednesday Q&A sessions.',
+  description: 'Get in touch with Anatolii Petrenko for web development, mobile apps, and AI automation projects.',
 })
 
 const formData = reactive({
@@ -16,10 +16,10 @@ const isSubmitting = ref(false)
 const isSubmitted = ref(false)
 
 const services = [
-  'Business Growth Strategy',
-  'Referral Marketing',
-  'Joint Ventures',
-  'Business Optimization',
+  'Full-Stack Web Development',
+  'Mobile App Development',
+  'AI Automation & Chatbots',
+  'API Integration',
   'General Inquiry',
 ]
 
@@ -34,45 +34,45 @@ const contactMethods = [
   {
     icon: 'heroicons:envelope-20-solid',
     title: 'Email',
-    description: 'For general inquiries',
+    description: 'For project inquiries',
     value: 'contact@anatoliipetrenko.com',
     href: 'mailto:contact@anatoliipetrenko.com',
     action: 'Send Email',
   },
   {
-    icon: 'heroicons:calendar-20-solid',
-    title: 'Schedule a Call',
-    description: 'Book a free consultation',
-    value: '30-minute discovery call',
-    href: '#schedule',
-    action: 'Book Now',
+    icon: 'heroicons:code-bracket-20-solid',
+    title: 'GitHub',
+    description: 'Check out my code',
+    value: 'Open source projects',
+    href: '#',
+    action: 'View GitHub',
   },
   {
-    icon: 'heroicons:video-camera-20-solid',
-    title: 'Wednesday Q&A',
-    description: 'Free weekly sessions',
-    value: 'Every Wednesday @ 4PM PST',
-    href: '#schedule',
-    action: 'Join Session',
+    icon: 'heroicons:briefcase-20-solid',
+    title: 'LinkedIn',
+    description: 'Professional network',
+    value: 'Connect with me',
+    href: '#',
+    action: 'View Profile',
   },
 ]
 
 const faqs = [
   {
-    question: 'How does the free consultation work?',
-    answer: 'The free consultation is a 30-minute discovery call where we discuss your business challenges and goals. I\'ll provide initial insights and we\'ll determine if working together would be a good fit.',
+    question: 'What services do you offer?',
+    answer: 'I specialize in full-stack web development, mobile app development, AI-powered automation systems, and API integrations. Whether you need a complete platform from scratch, an AI chatbot, or workflow automation — I can help.',
   },
   {
-    question: 'What industries do you work with?',
-    answer: 'I work with mission-based entrepreneurs across various industries. The common thread is a commitment to growth and a desire to make a positive impact through their business.',
+    question: 'What is your tech stack?',
+    answer: 'I work with React, Next.js, Vue.js, Node.js, Python, FastAPI, PHP, Laravel, PostgreSQL, Firebase, Docker, and AWS. For AI projects, I integrate OpenAI, Claude API, and custom NLP models.',
   },
   {
-    question: 'How long does a typical engagement last?',
-    answer: 'Engagements vary based on your needs. Some clients work with me on specific projects, while others engage in ongoing consulting relationships. We\'ll discuss the best approach during our initial consultation.',
+    question: 'How long does a typical project take?',
+    answer: 'It depends on the scope. A landing page or simple web app can be delivered in 1-2 weeks. Full-stack platforms or AI systems typically take 4-8 weeks. I\'ll provide a clear timeline after understanding your requirements.',
   },
   {
-    question: 'What are the Wednesday Q&A sessions?',
-    answer: 'Every Wednesday at 4PM PST, I host free internet marketing Q&A sessions. These are open discussions where you can ask questions about marketing, business growth, and strategy—no sales pitch, just valuable insights.',
+    question: 'Do you work with startups or only established businesses?',
+    answer: 'I work with both. For startups, I help build MVPs quickly and cost-effectively. For established businesses, I focus on scaling existing systems, adding AI automation, and improving performance.',
   },
 ]
 
@@ -103,7 +103,7 @@ function toggleFaq(index: number) {
           </span>
         </h1>
         <p class="text-xl text-dark-300 max-w-2xl mx-auto">
-          Ready to transform your business? I'd love to hear from you. Choose the best way to connect below.
+          Have a project in mind? I'd love to hear about it. Choose the best way to connect below.
         </p>
       </div>
     </section>
@@ -260,33 +260,53 @@ function toggleFaq(index: number) {
             </div>
           </div>
 
-          <!-- Schedule -->
+          <!-- What I Can Build -->
           <div>
             <h2 class="section-title mb-4">
-              Book a <span class="gradient-text">Call</span>
+              What I Can <span class="gradient-text">Build</span>
             </h2>
             <p class="text-lg text-dark-500 mb-8">
-              Schedule a free 30-minute discovery call to discuss your business goals.
+              From idea to deployment — here's what I can help you with.
             </p>
 
-            <!-- Calendar Placeholder -->
-            <div class="bg-white rounded-3xl p-8 shadow-xl">
-              <div class="aspect-video bg-dark-100 rounded-2xl flex items-center justify-center mb-6">
-                <div class="text-center">
-                  <Icon name="heroicons:calendar-days-20-solid" class="w-16 h-16 text-dark-300 mx-auto mb-4" />
-                  <p class="text-dark-500">Calendar integration would go here</p>
-                  <p class="text-sm text-dark-400">(e.g., Calendly, Cal.com)</p>
+            <div class="bg-white rounded-3xl p-8 shadow-xl space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="heroicons:globe-alt-20-solid" class="w-6 h-6 text-primary-600" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-dark-900 mb-1">Web Applications</h3>
+                  <p class="text-dark-500 text-sm">Full-stack platforms, SaaS products, e-commerce, dashboards, and admin panels.</p>
                 </div>
               </div>
 
-              <div class="bg-primary-50 rounded-xl p-6">
-                <h3 class="font-bold text-dark-900 mb-2">Free Wednesday Q&A Sessions</h3>
-                <p class="text-dark-600 text-sm mb-4">
-                  Join me every Wednesday at 4PM PST for free internet marketing Q&A sessions. No sales pitch, just valuable insights and answers to your questions.
-                </p>
-                <div class="flex items-center text-primary-600">
-                  <Icon name="heroicons:clock-20-solid" class="w-5 h-5 mr-2" />
-                  <span class="font-medium">Wednesdays @ 4:00 PM PST</span>
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-secondary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="heroicons:device-phone-mobile-20-solid" class="w-6 h-6 text-secondary-600" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-dark-900 mb-1">Mobile Apps</h3>
+                  <p class="text-dark-500 text-sm">Cross-platform iOS & Android apps with React Native and Flutter.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="heroicons:cpu-chip-20-solid" class="w-6 h-6 text-orange-600" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-dark-900 mb-1">AI & Automation</h3>
+                  <p class="text-dark-500 text-sm">AI chatbots, workflow automation, GPT integrations, and intelligent data processing.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="heroicons:arrow-path-20-solid" class="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-dark-900 mb-1">API & Integrations</h3>
+                  <p class="text-dark-500 text-sm">RESTful APIs, third-party integrations, payment gateways, and CRM connections.</p>
                 </div>
               </div>
             </div>
