@@ -1,19 +1,19 @@
 <script setup lang="ts">
 const highlights = [
   {
-    icon: 'heroicons:light-bulb-20-solid',
-    title: 'Strategic Thinking',
-    description: 'Data-driven approaches to identify opportunities and solve complex business challenges.',
+    icon: 'heroicons:code-bracket-20-solid',
+    title: 'Clean Architecture',
+    description: 'Writing scalable, maintainable code with modern frameworks and best practices.',
   },
   {
-    icon: 'heroicons:hand-raised-20-solid',
-    title: 'Hands-On Support',
-    description: 'Direct involvement in implementation, not just advice from the sidelines.',
+    icon: 'heroicons:cpu-chip-20-solid',
+    title: 'AI Integration',
+    description: 'Building intelligent features powered by OpenAI, Claude, and custom AI models.',
   },
   {
-    icon: 'heroicons:arrow-trending-up-20-solid',
-    title: 'Results Focused',
-    description: 'Every strategy is measured against tangible outcomes and ROI.',
+    icon: 'heroicons:rocket-launch-20-solid',
+    title: 'End-to-End Delivery',
+    description: 'From concept to deployment — full ownership of the development lifecycle.',
   },
 ]
 </script>
@@ -34,7 +34,7 @@ const highlights = [
 
             <!-- Experience Badge -->
             <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-dark-100">
-              <div class="text-4xl font-bold text-primary-600 mb-1">15+</div>
+              <div class="text-4xl font-bold text-primary-600 mb-1">10+</div>
               <div class="text-sm text-dark-500">Years of<br/>Experience</div>
             </div>
 
@@ -50,16 +50,16 @@ const highlights = [
             About Me
           </span>
           <h2 class="section-title mb-6">
-            Empowering Entrepreneurs to
-            <span class="gradient-text">Achieve More</span>
+            Building Digital Products With
+            <span class="gradient-text">Modern Tech</span>
           </h2>
 
           <div class="prose prose-lg text-dark-600 mb-8">
             <p class="leading-relaxed">
-              As a continual improvement strategist, I partner with mission-based entrepreneurs who are ready to transform themselves and the people they influence.
+              I'm a Full-Stack AI Developer specializing in building scalable web and mobile applications that turn ideas into reliable digital products.
             </p>
             <p class="leading-relaxed">
-              My approach combines proven marketing strategies, strategic partnerships, and business optimization techniques to create sustainable, long-term growth for your business.
+              I combine strong engineering skills with modern AI technologies to help businesses automate processes, improve user experience, and launch powerful platforms faster.
             </p>
           </div>
 
