@@ -1,21 +1,21 @@
 <script setup lang="ts">
 const testimonials = [
   {
-    content: "Anatolii built our e-commerce platform from scratch and it's been running smoothly for over a year now. He understood our requirements quickly, communicated clearly throughout the process, and delivered on time. The admin panel he built saves us hours every week.",
+    content: "Kato built our e-commerce platform from scratch and it's been running smoothly for over a year now. He understood our requirements quickly, communicated clearly throughout the process, and delivered on time. The admin panel he built saves us hours every week.",
     author: "David Park",
     role: "Founder, StyleVault",
     avatar: "DP",
     rating: 5,
   },
   {
-    content: "We needed an AI chatbot integrated with WhatsApp for customer support. Anatolii not only delivered exactly what we asked for, but also suggested improvements we hadn't thought of. Response time dropped from hours to seconds, and our support team can now focus on complex issues.",
+    content: "We needed an AI chatbot integrated with WhatsApp for customer support. Kato not only delivered exactly what we asked for, but also suggested improvements we hadn't thought of. Response time dropped from hours to seconds, and our support team can now focus on complex issues.",
     author: "Laura Kim",
     role: "Operations Manager, FreshDesk Co.",
     avatar: "LK",
     rating: 5,
   },
   {
-    content: "Anatolii helped us migrate our legacy CRM to a modern stack with AI-powered lead scoring. The transition was smooth, and the new system is significantly faster. He was patient with our team during onboarding and always available when we had questions.",
+    content: "Kato helped us migrate our legacy CRM to a modern stack with AI-powered lead scoring. The transition was smooth, and the new system is significantly faster. He was patient with our team during onboarding and always available when we had questions.",
     author: "James Mitchell",
     role: "CTO, GrowthPath Inc.",
     avatar: "JM",

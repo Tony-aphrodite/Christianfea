@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'About | Anatolii Petrenko',
-  description: 'Learn about Anatolii Petrenko, a business growth strategist helping mission-based entrepreneurs transform their businesses through continuous improvement.',
+  title: 'About | Kato Himari',
+  description: 'Learn about Kato Himari, a business growth strategist helping mission-based entrepreneurs transform their businesses through continuous improvement.',
 })
 
 const showFullStory = ref(false)
@@ -53,7 +53,7 @@ const timeline = [
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white mb-6">
               Hi, I'm
               <span class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-                Anatolii Petrenko
+                Kato Himari
               </span>
             </h1>
             <p class="text-xl text-dark-300 leading-relaxed">
@@ -65,9 +65,9 @@ const timeline = [
           <div class="relative">
             <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 max-w-md mx-auto">
               <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden shadow-xl">
-                <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
+                <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
               </div>
-              <h2 class="text-2xl font-bold text-white text-center mb-2">Anatolii Petrenko</h2>
+              <h2 class="text-2xl font-bold text-white text-center mb-2">Kato Himari</h2>
               <p class="text-primary-300 text-center mb-6">AI Full-Stack Developer</p>
               <div class="grid grid-cols-3 gap-4 text-center">
                 <div>

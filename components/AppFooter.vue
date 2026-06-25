@@ -35,11 +35,11 @@ const socialLinks = [
         <div class="lg:col-span-2">
           <NuxtLink to="/" class="flex items-center space-x-3 mb-6">
             <div class="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-xl flex items-center justify-center">
-              <span class="text-white font-bold text-xl">A</span>
+              <span class="text-white font-bold text-xl">K</span>
             </div>
             <div>
-              <span class="text-xl font-bold text-white">Anatolii</span>
-              <span class="text-xl font-bold text-primary-400">Petrenko</span>
+              <span class="text-xl font-bold text-white">Kato</span>
+              <span class="text-xl font-bold text-primary-400">Himari</span>
             </div>
           </NuxtLink>
           <p class="text-dark-300 mb-6 max-w-sm leading-relaxed">
@@ -110,7 +110,7 @@ const socialLinks = [
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p class="text-dark-400 text-sm">
-            &copy; {{ currentYear }} Anatolii Petrenko. All rights reserved.
+            &copy; {{ currentYear }} Kato Himari. All rights reserved.
           </p>
           <div class="flex space-x-6">
             <NuxtLink to="/privacy" class="text-dark-400 text-sm hover:text-primary-400 transition-colors">

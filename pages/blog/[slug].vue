@@ -152,7 +152,7 @@ if (!post.value) {
 }
 
 useSeoMeta({
-  title: `${post.value.title} | Anatolii Petrenko`,
+  title: `${post.value.title} | Kato Himari`,
   description: post.value.excerpt,
 })
 
@@ -205,10 +205,10 @@ function formatDate(dateString: string) {
 
         <div class="flex items-center space-x-4">
           <div class="w-12 h-12 rounded-full overflow-hidden">
-            <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
+            <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
           </div>
           <div>
-            <div class="text-white font-medium">Anatolii Petrenko</div>
+            <div class="text-white font-medium">Kato Himari</div>
             <div class="text-dark-400 text-sm">{{ formatDate(post.date) }}</div>
           </div>
         </div>
@@ -262,15 +262,15 @@ function formatDate(dateString: string) {
         <div class="bg-white rounded-2xl p-8 shadow-xl">
           <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             <div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0">
-              <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
+              <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
             </div>
             <div>
-              <h3 class="text-xl font-bold text-dark-900 mb-2">About Anatolii Petrenko</h3>
+              <h3 class="text-xl font-bold text-dark-900 mb-2">About Kato Himari</h3>
               <p class="text-dark-500 mb-4">
-                Anatolii Petrenko is a business growth strategist who helps mission-based entrepreneurs achieve sustainable growth through referral marketing, joint ventures, and continuous improvement methodologies.
+                Kato Himari is a business growth strategist who helps mission-based entrepreneurs achieve sustainable growth through referral marketing, joint ventures, and continuous improvement methodologies.
               </p>
               <NuxtLink to="/about" class="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center">
-                Learn more about Anatolii
+                Learn more about Kato
                 <Icon name="heroicons:arrow-right-20-solid" class="w-4 h-4 ml-1" />
               </NuxtLink>
             </div>

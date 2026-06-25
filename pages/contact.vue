@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Contact | Anatolii Petrenko',
-  description: 'Get in touch with Anatolii Petrenko for web development, mobile apps, and AI automation projects.',
+  title: 'Contact | Kato Himari',
+  description: 'Get in touch with Kato Himari for web development, mobile apps, and AI automation projects.',
 })
 
 const formData = reactive({
@@ -35,8 +35,8 @@ const contactMethods = [
     icon: 'heroicons:envelope-20-solid',
     title: 'Email',
     description: 'For project inquiries',
-    value: 'contact@anatoliipetrenko.com',
-    href: 'mailto:contact@anatoliipetrenko.com',
+    value: 'contact@katohimari.com',
+    href: 'mailto:contact@katohimari.com',
     action: 'Send Email',
   },
   {

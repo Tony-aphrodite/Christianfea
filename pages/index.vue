@@ -4,8 +4,8 @@
 definePageMeta({ layout: false })
 
 useSeoMeta({
-  title: 'Anatolii Petrenko | AI Full-Stack Developer',
-  description: 'The portfolio of Anatolii Petrenko, AI Full-Stack Developer — presented as an interactive book. Scroll to open the cover and turn through each chapter.',
+  title: 'Kato Himari | AI Full-Stack Developer',
+  description: 'The portfolio of Kato Himari, AI Full-Stack Developer — presented as an interactive book. Scroll to open the cover and turn through each chapter.',
 })
 </script>
 

@@ -28,7 +28,7 @@ const highlights = [
             <!-- Main Image Container -->
             <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-3xl p-1">
               <div class="bg-dark-100 rounded-3xl aspect-[4/5] overflow-hidden">
-                <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
+                <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
               </div>
             </div>
 

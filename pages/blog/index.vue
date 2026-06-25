@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Products | Anatolii Petrenko',
+  title: 'Products | Kato Himari',
   description: 'Explore my portfolio of web applications, mobile apps, and AI-powered platforms built for real-world businesses.',
 })
 

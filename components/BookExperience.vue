@@ -116,8 +116,8 @@ function submit() {
       <!-- top bar -->
       <div class="topbar">
         <button class="brand" @click="goTo(-1)">
-          <span class="brand-mark">A</span>
-          <span class="brand-name">Anatolii&nbsp;<b>Petrenko</b></span>
+          <span class="brand-mark">K</span>
+          <span class="brand-name">Kato&nbsp;<b>Himari</b></span>
         </button>
         <nav class="chapters">
           <button
@@ -139,8 +139,8 @@ function submit() {
           <div class="leaf" :style="{ zIndex: 0 }">
             <div class="face front cover back-cover">
               <div class="cover-frame">
-                <span class="cover-mono">A · P</span>
-                <p class="cover-foot">Designed &amp; built by Anatolii Petrenko</p>
+                <span class="cover-mono">K · H</span>
+                <p class="cover-foot">Designed &amp; built by Kato Himari</p>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ function submit() {
             <div class="face front cover">
               <div class="cover-frame">
                 <span class="cover-kicker">Portfolio · 2026</span>
-                <h1 class="cover-title">Anatolii<br />Petrenko</h1>
+                <h1 class="cover-title">Kato<br />Himari</h1>
                 <div class="cover-rule"></div>
                 <p class="cover-sub">AI Full-Stack Developer</p>
                 <span class="cover-open">
@@ -191,7 +191,7 @@ function submit() {
                 <span class="eyebrow">About</span>
                 <h2 class="h-md">A developer who ships, end to end.</h2>
                 <div class="portrait">
-                  <img src="/compressed_image.jpg" alt="Anatolii Petrenko" />
+                  <img src="/compressed_image.jpg" alt="Kato Himari" />
                   <span class="portrait-tag"><b>10+</b> yrs</span>
                 </div>
               </div>
@@ -301,7 +301,7 @@ function submit() {
                 <span class="eyebrow">Contact</span>
                 <h2 class="h-md">Let's work together.</h2>
                 <ul class="contact-list">
-                  <li><Icon name="heroicons:envelope-20-solid" /> contact@anatoliipetrenko.com</li>
+                  <li><Icon name="heroicons:envelope-20-solid" /> contact@katohimari.com</li>
                   <li><Icon name="heroicons:calendar-20-solid" /> Free Q&amp;A — Wed @ 4PM PST</li>
                   <li><Icon name="heroicons:map-pin-20-solid" /> Available worldwide</li>
                 </ul>
@@ -339,7 +339,7 @@ function submit() {
               <div class="ph-pad center">
                 <h2 class="h-lg">Thank you<br />for reading.</h2>
                 <div class="cover-rule dark"></div>
-                <p class="muted">Anatolii Petrenko — AI Full-Stack Developer</p>
+                <p class="muted">Kato Himari — AI Full-Stack Developer</p>
                 <button class="reopen" @click="goTo(-1)">
                   <Icon name="heroicons:arrow-up-20-solid" /> Back to cover
                 </button>

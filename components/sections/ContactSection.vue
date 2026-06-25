@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: 'heroicons:envelope-20-solid',
     label: 'Email',
-    value: 'contact@anatoliipetrenko.com',
-    href: 'mailto:contact@anatoliipetrenko.com',
+    value: 'contact@katohimari.com',
+    href: 'mailto:contact@katohimari.com',
   },
   {
     icon: 'heroicons:calendar-20-solid',

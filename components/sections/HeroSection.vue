@@ -67,10 +67,10 @@ const stats = [
             <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 shadow-2xl">
               <div class="flex items-center space-x-4 mb-6">
                 <div class="w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
-                  <img src="/compressed_image.jpg" alt="Anatolii Petrenko" class="w-full h-full object-cover" />
+                  <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-white">Anatolii Petrenko</h3>
+                  <h3 class="text-xl font-bold text-white">Kato Himari</h3>
                   <p class="text-primary-300">AI Full-Stack Developer</p>
                 </div>
               </div>
