@@ -1,18 +1,14 @@
 <script setup lang="ts">
+// The homepage is the book — a full, scroll-driven experience with no global
+// header/footer chrome. Other routes keep the standard layout.
+definePageMeta({ layout: false })
+
 useSeoMeta({
-  title: 'Anatolii Petrenko | Business Growth Strategist',
-  description: 'Transform your business with proven strategies. Anatolii Petrenko helps mission-based entrepreneurs achieve continuous improvement and sustainable growth through referral marketing, joint ventures, and business optimization.',
+  title: 'Anatolii Petrenko | AI Full-Stack Developer',
+  description: 'The portfolio of Anatolii Petrenko, AI Full-Stack Developer — presented as an interactive book. Scroll to open the cover and turn through each chapter.',
 })
 </script>
 
 <template>
-  <div>
-    <SectionsHeroSection />
-    <SectionsServicesSection />
-    <SectionsAboutSection />
-    <SectionsTestimonialsSection />
-    <SectionsBlogSection />
-    <SectionsCTASection />
-    <SectionsContactSection />
-  </div>
+  <BookExperience />
 </template>
