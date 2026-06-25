@@ -34,8 +34,8 @@ const socialLinks = [
         <!-- Brand Column -->
         <div class="lg:col-span-2">
           <NuxtLink to="/" class="flex items-center space-x-3 mb-6">
-            <div class="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center">
-              <img src="/logo.png" alt="Kato Himari logo" class="w-full h-full object-cover" />
+            <div class="w-11 h-9 flex items-center justify-center">
+              <img src="/logo-white.png" alt="Kato Himari logo" class="w-full h-full object-contain" />
             </div>
             <div>
               <span class="text-xl font-bold text-white">Kato</span>

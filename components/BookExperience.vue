@@ -119,7 +119,7 @@ function submit() {
       <!-- top bar -->
       <div class="topbar">
         <button class="brand" @click="goTo(-1)">
-          <span class="brand-mark"><img src="/logo.png" alt="Kato Himari logo" /></span>
+          <span class="brand-mark"><img src="/logo-white.png" alt="Kato Himari logo" /></span>
           <span class="brand-name">Kato&nbsp;<b>Himari</b></span>
         </button>
         <nav class="chapters">
@@ -142,7 +142,7 @@ function submit() {
           <div class="leaf" :style="{ zIndex: 0 }">
             <div class="face front cover back-cover">
               <div class="cover-frame">
-                <span class="cover-logo lg"><img src="/logo.png" alt="Kato Himari logo" /></span>
+                <span class="cover-logo lg"><img src="/logo-white.png" alt="Kato Himari logo" /></span>
                 <p class="cover-foot">Designed &amp; built by Kato Himari</p>
               </div>
             </div>
@@ -152,7 +152,7 @@ function submit() {
           <div class="leaf" :style="leafStyle(0)">
             <div class="face front cover">
               <div class="cover-frame">
-                <span class="cover-logo"><img src="/logo.png" alt="Kato Himari logo" /></span>
+                <span class="cover-logo"><img src="/logo-white.png" alt="Kato Himari logo" /></span>
                 <span class="cover-kicker">Portfolio · 2026</span>
                 <h1 class="cover-title">Kato<br />Himari</h1>
                 <div class="cover-rule"></div>
@@ -520,9 +520,10 @@ function submit() {
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 80px rgba(0,0,0,0.35);
 }
 .cover-frame { height: 100%; padding: 50px 44px; display: flex; flex-direction: column; justify-content: center; gap: 16px; border: 1px solid rgba(212,239,228,0.16); margin: 18px; border-radius: 8px; }
-.cover-logo { width: 76px; height: 76px; border-radius: 18px; background: #fff; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.35); margin-bottom: 6px; }
-.cover-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cover-logo.lg { width: 96px; height: 96px; border-radius: 22px; margin: 0 0 18px; }
+.cover-logo { width: 116px; height: 92px; margin-bottom: 10px; }
+.cover-logo img { width: 100%; height: 100%; object-fit: contain; object-position: left center; display: block; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.35)); }
+.cover-logo.lg { width: 150px; height: 118px; margin: 0 0 18px; }
+.cover-logo.lg img { object-position: center; }
 .cover-kicker { font: 600 12px/1 'Sora',sans-serif; letter-spacing: .3em; text-transform: uppercase; color: #6ee7b7; }
 .cover-title { font: 800 56px/0.98 'Sora',sans-serif; letter-spacing: -0.02em; }
 .cover-rule { width: 64px; height: 3px; background: linear-gradient(90deg,#34d399,#0d9488); border-radius: 2px; }
@@ -553,8 +554,8 @@ function submit() {
   padding: 18px 26px;
 }
 .brand { display: inline-flex; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; color: #eafff6; }
-.brand-mark { width: 34px; height: 34px; border-radius: 9px; background: #fff; overflow: hidden; display: grid; place-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-.brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.brand-mark { width: 40px; height: 32px; display: grid; place-items: center; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; object-position: left center; display: block; }
 .brand-name { font: 500 16px/1 'Sora',sans-serif; color: #eafff6; }
 .brand-name b { font-weight: 700; color: #6ee7b7; }
 .chapters { display: flex; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 5px; border-radius: 999px; backdrop-filter: blur(8px); }

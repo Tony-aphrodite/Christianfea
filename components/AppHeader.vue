@@ -40,8 +40,8 @@ function closeMenu() {
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center space-x-3 group" @click="closeMenu">
-          <div class="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-xl group-hover:shadow-primary-500/40 transition-all duration-300">
-            <img src="/logo.png" alt="Kato Himari logo" class="w-full h-full object-cover" />
+          <div class="w-11 h-9 flex items-center justify-center transition-all duration-300">
+            <img src="/logo-mark.png" alt="Kato Himari logo" class="w-full h-full object-contain" />
           </div>
           <div class="hidden sm:block">
             <span class="text-xl font-bold text-dark-900">Kato</span>
