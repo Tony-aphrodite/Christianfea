@@ -205,7 +205,7 @@ function formatDate(dateString: string) {
 
         <div class="flex items-center space-x-4">
           <div class="w-12 h-12 rounded-full overflow-hidden">
-            <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
+            <img src="/Laks.png" alt="Kato Himari" class="w-full h-full object-cover" />
           </div>
           <div>
             <div class="text-white font-medium">Kato Himari</div>
@@ -262,7 +262,7 @@ function formatDate(dateString: string) {
         <div class="bg-white rounded-2xl p-8 shadow-xl">
           <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             <div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0">
-              <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
+              <img src="/Laks.png" alt="Kato Himari" class="w-full h-full object-cover" />
             </div>
             <div>
               <h3 class="text-xl font-bold text-dark-900 mb-2">About Kato Himari</h3>

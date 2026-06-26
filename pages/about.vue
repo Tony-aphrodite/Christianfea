@@ -65,7 +65,7 @@ const timeline = [
           <div class="relative">
             <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 max-w-md mx-auto">
               <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden shadow-xl">
-                <img src="/compressed_image.jpg" alt="Kato Himari" class="w-full h-full object-cover" />
+                <img src="/Laks.png" alt="Kato Himari" class="w-full h-full object-cover" />
               </div>
               <h2 class="text-2xl font-bold text-white text-center mb-2">Kato Himari</h2>
               <p class="text-primary-300 text-center mb-6">AI Full-Stack Developer</p>
