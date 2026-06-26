@@ -41,7 +41,7 @@ function chunk<T>(arr: T[], n: number): T[][] {
   for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n))
   return out
 }
-const projFaces = chunk(projects, 3).map((items, idx) => ({
+const projFaces = chunk(projects, 2).map((items, idx) => ({
   type: 'projects',
   folio: String(5 + idx).padStart(2, '0'),
   items,
