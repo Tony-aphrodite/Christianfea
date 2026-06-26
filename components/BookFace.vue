@@ -8,7 +8,10 @@ const props = defineProps<{
   face: Record<string, any>
   side: 'front' | 'back'
 }>()
-const emit = defineEmits<{ (e: 'navigate', k: number): void }>()
+const emit = defineEmits<{
+  (e: 'navigate', k: number): void
+  (e: 'open', project: Record<string, any>): void
+}>()
 
 // folio sits on the outer edge: right pages are leaf fronts, left pages are backs
 const folioRight = computed(() => props.side === 'front')
@@ -20,20 +23,40 @@ function submit() {
   if (!form.name || !form.email) return
   sent.value = true
 }
-function href(url: string) {
-  return url ? 'https://' + url.replace(/^https?:\/\//, '') : undefined
+
+// typewriter that cycles through roles on the cover
+const typed = ref('')
+let timer: any = null
+const roles = ['AI Full-Stack Developer', 'Web3 & Blockchain Engineer', 'Product-minded Builder']
+let ri = 0
+let ci = 0
+let deleting = false
+function tick() {
+  const w = roles[ri]
+  if (!deleting) {
+    ci++
+    typed.value = w.slice(0, ci)
+    if (ci === w.length) { deleting = true; timer = setTimeout(tick, 1500); return }
+  } else {
+    ci--
+    typed.value = w.slice(0, ci)
+    if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length }
+  }
+  timer = setTimeout(tick, deleting ? 38 : 78)
 }
+onMounted(() => { if (props.face.type === 'cover') tick() })
+onUnmounted(() => { if (timer) clearTimeout(timer) })
 </script>
 
 <template>
   <!-- FRONT COVER -->
-  <div v-if="face.type === 'cover'" class="cover-frame">
-    <span class="cover-logo"><img src="/logo-white.png" alt="Kato Himari logo" /></span>
-    <span class="cover-kicker">Portfolio · 2026</span>
-    <h1 class="cover-title">Kato<br />Himari</h1>
-    <div class="cover-rule"></div>
-    <p class="cover-sub">AI Full-Stack Developer</p>
-    <span class="cover-open">
+  <div v-if="face.type === 'cover'" class="cover-frame intro">
+    <span class="cover-logo i1"><img src="/logo-white.png" alt="Kato Himari logo" /></span>
+    <span class="cover-kicker i2">Portfolio · 2026</span>
+    <h1 class="cover-title i3">Kato<br />Himari</h1>
+    <div class="cover-rule i4"></div>
+    <p class="cover-sub i5">{{ typed }}<span class="caret"></span></p>
+    <span class="cover-open i6">
       <Icon name="heroicons:chevron-down-20-solid" class="bob" />
       scroll to open
     </span>
@@ -57,9 +80,9 @@ function href(url: string) {
   <div v-else-if="face.type === 'welcome'" class="ph-pad">
     <span class="folio" :class="{ r: folioRight }">{{ face.folio }}</span>
     <span class="eyebrow">Welcome</span>
-    <h2 class="h-lg">Building digital products with <em>AI &amp; modern tech</em></h2>
-    <p class="lead">I create scalable web &amp; mobile applications — from full-stack platforms
-      and Web3 dApps to automation systems, intelligent chatbots and APIs.</p>
+    <h2 class="h-lg">I turn complex ideas into products people <em>actually use</em>.</h2>
+    <p class="lead">Web3 protocols, NFT marketplaces, DeFi dApps, AI tools and storefronts — I own
+      the whole build: design, frontend, backend and the on-chain parts.</p>
     <div class="stats">
       <div><b>21</b><span>Projects</span></div>
       <div><b>10+</b><span>Years</span></div>
@@ -81,9 +104,9 @@ function href(url: string) {
   <!-- ABOUT (strengths) -->
   <div v-else-if="face.type === 'about2'" class="ph-pad">
     <span class="folio" :class="{ r: folioRight }">{{ face.folio }}</span>
-    <p class="lead">I take full ownership of the development lifecycle — from concept and design
-      to deployment — writing clean, maintainable code and bringing Web3 and AI to life where
-      they genuinely add value.</p>
+    <p class="lead">I like the messy middle — a vague idea, a deadline, and shipping something
+      solid at the end. I care about clean architecture, fast interfaces, and reaching for Web3
+      or AI only when they genuinely make a product better.</p>
     <ul class="feature-list">
       <li>
         <Icon name="heroicons:code-bracket-20-solid" />
@@ -105,8 +128,8 @@ function href(url: string) {
     <span class="folio" :class="{ r: folioRight }">{{ face.folio }}</span>
     <span class="eyebrow">Portfolio</span>
     <h2 class="h-lg">Selected<br />Work</h2>
-    <p class="lead">A selection of {{ face.count }} shipped products across Web3, DeFi, NFT
-      platforms, AI tools and e-commerce.</p>
+    <p class="lead">{{ face.count }} products I've designed and shipped across Web3, DeFi, NFT
+      platforms, AI tools and e-commerce. <b>Tap any card</b> for the story behind it.</p>
     <div class="legend">
       <span>DeFi</span><span>NFT</span><span>Web3</span><span>AI</span><span>E-Commerce</span>
     </div>
@@ -116,26 +139,24 @@ function href(url: string) {
   <!-- PROJECTS GRID -->
   <div v-else-if="face.type === 'projects'" class="ph-pad projects">
     <span class="folio" :class="{ r: folioRight }">{{ face.folio }}</span>
-    <a
+    <button
       v-for="p in face.items"
       :key="p.file"
+      type="button"
       class="pcard"
-      :class="{ link: !!p.url }"
-      :href="href(p.url)"
-      :target="p.url ? '_blank' : undefined"
-      rel="noopener"
+      @click="emit('open', p)"
     >
       <div class="pshot"><img :src="`/portfolio/${p.file}`" :alt="p.title" loading="lazy" /></div>
       <div class="pmeta">
         <div class="prow">
           <span class="pcat">{{ p.category }}</span>
-          <Icon v-if="p.url" name="heroicons:arrow-up-right-20-solid" class="pext" />
+          <span class="pview">View case <Icon name="heroicons:arrow-right-20-solid" /></span>
         </div>
         <b class="ptitle">{{ p.title }}</b>
         <p class="pdesc">{{ p.description }}</p>
         <div class="ptags"><span v-for="t in p.tech.slice(0, 4)" :key="t">{{ t }}</span></div>
       </div>
-    </a>
+    </button>
   </div>
 
   <!-- CONTACT INFO -->
@@ -224,15 +245,18 @@ function href(url: string) {
 
 /* projects — 2 per page, full screenshot always visible (never cropped) */
 .projects { gap: 14px; padding: 18px 26px; justify-content: center; }
-.pcard { display: flex; flex-direction: column; background: #fff; border: 1px solid #ece5d7; border-radius: 14px; overflow: hidden; text-decoration: none; box-shadow: 0 6px 16px rgba(60,50,20,0.05); transition: transform .2s, box-shadow .2s, border-color .2s; }
-.pcard.link:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(5,150,105,0.14); border-color: #b9e3d2; }
+.pcard { appearance: none; -webkit-appearance: none; font: inherit; text-align: left; width: 100%; padding: 0; cursor: pointer; display: flex; flex-direction: column; background: #fff; border: 1px solid #ece5d7; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 16px rgba(60,50,20,0.05); transition: transform .2s, box-shadow .2s, border-color .2s; }
+.pcard:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(5,150,105,0.14); border-color: #b9e3d2; }
+.pcard:hover .pview { opacity: 1; transform: translateX(0); }
+.pcard:hover .pshot img { transform: scale(1.03); }
 /* contain = the whole screenshot is always shown, never cropped */
 .pshot { height: 152px; background: #eef0ec; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #ece5d7; }
-.pshot img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pshot img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .3s ease; }
 .pmeta { padding: 11px 14px 13px; display: flex; flex-direction: column; gap: 4px; }
 .prow { display: flex; align-items: center; justify-content: space-between; }
 .pcat { font: 700 10px/1 'Sora',sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #0d9488; }
-.pext { width: 16px; height: 16px; color: #94a99e; }
+.pview { display: inline-flex; align-items: center; gap: 3px; font: 600 10px/1 'Sora',sans-serif; color: #059669; opacity: 0; transform: translateX(-4px); transition: opacity .2s, transform .2s; }
+.pview svg { width: 13px; height: 13px; }
 .ptitle { font: 700 16px/1.2 'Sora',sans-serif; color: #1f3327; }
 .pdesc { font: 400 12px/1.45 'Inter',sans-serif; color: #6b7a70; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .ptags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
@@ -266,7 +290,20 @@ function href(url: string) {
 .cover-title { font: 800 56px/0.98 'Sora',sans-serif; letter-spacing: -0.02em; color: #eafff6; }
 .cover-rule { width: 64px; height: 3px; background: linear-gradient(90deg,#34d399,#0d9488); border-radius: 2px; }
 .cover-rule.dark { background: linear-gradient(90deg,#059669,#0d9488); }
-.cover-sub { font: 400 18px/1.4 'Inter',sans-serif; color: #b7d8cb; }
+.cover-sub { font: 400 18px/1.4 'Inter',sans-serif; color: #b7d8cb; min-height: 1.4em; }
+.caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: -2px; background: #6ee7b7; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* cover intro: staggered reveal on mount */
+.intro > * { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+.intro .i1 { animation-delay: .05s; }
+.intro .i2 { animation-delay: .18s; }
+.intro .i3 { animation-delay: .30s; }
+.intro .i4 { animation-delay: .44s; }
+.intro .i5 { animation-delay: .56s; }
+.intro .i6 { animation-delay: .80s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .intro > * { opacity: 1; animation: none; } }
 .cover-open { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font: 500 13px/1 'Inter',sans-serif; color: #8fd3b9; letter-spacing: .05em; }
 .cover-open svg { width: 18px; height: 18px; }
 .backcover-frame { align-items: center; text-align: center; justify-content: center; }
