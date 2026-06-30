@@ -93,18 +93,13 @@ function leafT(i: number) {
 function leafStyle(i: number) {
   const t = leafT(i)
   const z = t <= 0 ? N - i : t >= 1 ? i : N + 5
-  const k = Math.sin(t * Math.PI)             // 0 → 1 → 0 over the turn
-  const bow = (k * 11).toFixed(2)             // the page bows toward the reader…
-  const lift = (k * 30).toFixed(1)            // …and lifts off the spine like a wave
-  return {
-    transform: `translateZ(${lift}px) rotateY(${(-180 * t).toFixed(2)}deg) rotateX(${bow}deg)`,
-    zIndex: z,
-  }
+  // pure hinge at the spine — the page never detaches, it only rotates
+  return { transform: `rotateY(${(-180 * t).toFixed(2)}deg)`, zIndex: z }
 }
-// dynamic turn shading: a page darkens as it rotates away, with a sheen mid-turn
-function frontShade(i: number) { return (leafT(i) * 0.6).toFixed(3) }
-function backShade(i: number) { return ((1 - leafT(i)) * 0.55).toFixed(3) }
-function sheen(i: number) { return (Math.sin(leafT(i) * Math.PI) * 0.5).toFixed(3) }
+// turn shading: page darkens as it rotates away; the curl band sweeps mid-turn
+function frontShade(i: number) { return (leafT(i) * 0.55).toFixed(3) }
+function backShade(i: number) { return ((1 - leafT(i)) * 0.5).toFixed(3) }
+function curlOp(i: number) { return Math.sin(leafT(i) * Math.PI).toFixed(3) }
 
 const scale = computed(() =>
   clamp(Math.min((vw.value - 48) / (PAGE_W * 2), (vh.value - 128) / PAGE_H), 0.32, 2.6)
@@ -251,15 +246,15 @@ onUnmounted(() => {
 
           <!-- flipping leaves -->
           <div v-for="(leaf, i) in leaves" :key="i" class="leaf" :style="leafStyle(i)">
-            <div class="face front" :class="bgClass(leaf.front)">
+            <div class="face front" :class="bgClass(leaf.front)" :style="{ '--p': leafT(i) }">
               <BookFace :face="leaf.front" side="front" @navigate="goTo" @open="openProject" />
               <i class="shade" :style="{ opacity: frontShade(i) }"></i>
-              <i class="sheen" :style="{ opacity: sheen(i) }"></i>
+              <i class="curl" :style="{ opacity: curlOp(i) }"></i>
             </div>
-            <div class="face back" :class="bgClass(leaf.back)">
+            <div class="face back" :class="bgClass(leaf.back)" :style="{ '--p': leafT(i) }">
               <BookFace v-if="leaf.back" :face="leaf.back" side="back" @navigate="goTo" @open="openProject" />
               <i class="shade" :style="{ opacity: backShade(i) }"></i>
-              <i class="sheen" :style="{ opacity: sheen(i) }"></i>
+              <i class="curl" :style="{ opacity: curlOp(i) }"></i>
             </div>
           </div>
 
@@ -329,14 +324,14 @@ onUnmounted(() => {
 }
 .stage::before { /* warm candle glow */
   content: ''; position: absolute; width: 1200px; height: 1200px;
-  background: radial-gradient(circle, rgba(196,142,58,0.20), transparent 62%);
+  background: radial-gradient(circle, rgba(150,110,70,0.20), transparent 62%);
   filter: blur(24px); pointer-events: none;
 }
 /* slow warm haze, like lamplight on old vellum */
 .aurora {
   position: absolute; inset: -20%; pointer-events: none; opacity: 0.42; mix-blend-mode: screen;
   background:
-    radial-gradient(40% 30% at 22% 28%, rgba(201,160,77,0.22), transparent 60%),
+    radial-gradient(40% 30% at 22% 28%, rgba(70,120,105,0.22), transparent 60%),
     radial-gradient(35% 28% at 78% 26%, rgba(140,86,40,0.22), transparent 60%),
     radial-gradient(45% 35% at 60% 82%, rgba(120,70,30,0.20), transparent 60%);
   filter: blur(46px); animation: drift 26s ease-in-out infinite alternate;
@@ -346,13 +341,13 @@ onUnmounted(() => {
 .stars {
   position: absolute; inset: 0; pointer-events: none;
   background-image:
-    radial-gradient(1px 1px at 12% 22%, rgba(232,210,160,0.7), transparent),
-    radial-gradient(1px 1px at 28% 68%, rgba(232,210,160,0.5), transparent),
-    radial-gradient(1.5px 1.5px at 47% 14%, rgba(232,210,160,0.6), transparent),
-    radial-gradient(1px 1px at 63% 52%, rgba(232,210,160,0.5), transparent),
-    radial-gradient(1px 1px at 78% 30%, rgba(232,210,160,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 88% 72%, rgba(232,210,160,0.5), transparent),
-    radial-gradient(1px 1px at 38% 88%, rgba(232,210,160,0.5), transparent);
+    radial-gradient(1px 1px at 12% 22%, rgba(214,208,186,0.7), transparent),
+    radial-gradient(1px 1px at 28% 68%, rgba(214,208,186,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 47% 14%, rgba(214,208,186,0.6), transparent),
+    radial-gradient(1px 1px at 63% 52%, rgba(214,208,186,0.5), transparent),
+    radial-gradient(1px 1px at 78% 30%, rgba(214,208,186,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 88% 72%, rgba(214,208,186,0.5), transparent),
+    radial-gradient(1px 1px at 38% 88%, rgba(214,208,186,0.5), transparent);
   animation: twinkle 6s ease-in-out infinite alternate;
 }
 @keyframes twinkle { 0% { opacity: 0.22; } 100% { opacity: 0.55; } }
@@ -369,19 +364,26 @@ onUnmounted(() => {
 .leaf { position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d; transition: transform 0.05s linear; will-change: transform; }
 .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden; border-radius: 4px 10px 10px 4px; }
 .face.back { transform: rotateY(180deg); }
-/* dynamic turn shading + a sheen that crests like a wave mid-turn */
+/* gentle overall darkening as the page rotates away */
 .shade { position: absolute; inset: 0; pointer-events: none; z-index: 40;
-  background: linear-gradient(100deg, rgba(20,10,0,0) 30%, rgba(20,10,0,0.55) 100%); }
-.face.back .shade { background: linear-gradient(260deg, rgba(20,10,0,0) 30%, rgba(20,10,0,0.55) 100%); }
-.sheen { position: absolute; inset: 0; pointer-events: none; z-index: 41; mix-blend-mode: screen;
-  background: linear-gradient(112deg, transparent 30%, rgba(255,238,198,0.5) 50%, transparent 70%); }
+  background: linear-gradient(100deg, rgba(15,12,6,0) 38%, rgba(15,12,6,0.5) 100%); }
+/* the rolling curl: a shadow + crest highlight that sweeps across the page,
+   driven by --p (0→1 flip progress) so the paper appears to roll over while the
+   spine stays attached. The back face's rotateY(180) mirrors it automatically. */
+.curl { position: absolute; inset: 0; pointer-events: none; z-index: 41;
+  background: linear-gradient(99deg,
+    transparent calc(91% - var(--p,0) * 116%),
+    rgba(0,0,0,0.36) calc(99% - var(--p,0) * 116%),
+    rgba(255,251,242,0.24) calc(103% - var(--p,0) * 116%),
+    rgba(0,0,0,0.18) calc(107% - var(--p,0) * 116%),
+    transparent calc(115% - var(--p,0) * 116%)); }
 
 /* aged parchment / vellum, darkened toward the fore-edge */
 .paper {
   background:
     radial-gradient(150% 130% at 100% 50%, rgba(110,76,32,0.20), transparent 44%),
     linear-gradient(90deg, rgba(70,46,18,0.16), transparent 14%),
-    linear-gradient(160deg, #f4e8cd, #e7d6ad 58%, #d8c393);
+    linear-gradient(160deg, #efe8d6, #ddd4ba 58%, #cbc2a4);
   color: #3b2d17;
   box-shadow: inset 0 0 70px rgba(92,62,22,0.20), inset 0 0 14px rgba(60,40,15,0.22);
 }
@@ -389,45 +391,45 @@ onUnmounted(() => {
   background:
     radial-gradient(150% 130% at 0% 50%, rgba(110,76,32,0.20), transparent 44%),
     linear-gradient(270deg, rgba(70,46,18,0.16), transparent 14%),
-    linear-gradient(160deg, #f4e8cd, #e7d6ad 58%, #d8c393);
+    linear-gradient(160deg, #efe8d6, #ddd4ba 58%, #cbc2a4);
   border-radius: 10px 4px 4px 10px;
 }
-.closing { background: linear-gradient(160deg,#f4e8cd,#e2cd9f) !important; }
+.closing { background: linear-gradient(160deg,#efe8d6,#d7cdb2) !important; }
 /* aged tooled-leather cover with a faint gilt frame */
 .cover {
   background:
     radial-gradient(120% 100% at 30% 4%, rgba(126,84,40,0.55), transparent 56%),
-    linear-gradient(160deg, #432a13, #1d1107);
+    linear-gradient(160deg, #2a1d12, #130c06);
   color: #f1e3c2; border-radius: 4px 12px 12px 4px;
-  box-shadow: inset 0 0 0 1px rgba(201,160,77,0.22), inset 0 0 90px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 0 1px rgba(70,120,105,0.22), inset 0 0 90px rgba(0,0,0,0.5);
 }
 .back-cover { border-radius: 4px 12px 12px 4px; }
 
 .spine { position: absolute; top: 0; bottom: 0; left: -3px; width: 18px; background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0)); transform: translateZ(1px); pointer-events: none; z-index: 50; }
-.read-bar { position: absolute; top: 0; left: -1px; width: 3px; background: linear-gradient(180deg,#eccd84,#a9802f); box-shadow: 0 0 8px rgba(201,160,77,0.75); border-radius: 2px; transform: translateZ(2px); z-index: 51; pointer-events: none; }
+.read-bar { position: absolute; top: 0; left: -1px; width: 3px; background: linear-gradient(180deg,#4f9c89,#235e50); box-shadow: 0 0 8px rgba(70,120,105,0.75); border-radius: 2px; transform: translateZ(2px); z-index: 51; pointer-events: none; }
 
 /* leather-and-gilt bookmark ribbon */
 .ribbon { position: absolute; top: -10px; right: 46px; width: 30px; height: 120px; border: none; cursor: pointer; padding: 0; z-index: 52;
-  background: linear-gradient(180deg,#7d2222,#4f1414); box-shadow: 0 6px 14px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(201,160,77,0.3);
+  background: linear-gradient(180deg,#7d2222,#4f1414); box-shadow: 0 6px 14px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(70,120,105,0.3);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%); transform: translateZ(3px); transition: height .25s ease; }
 .ribbon:hover { height: 138px; }
-.ribbon-label { position: absolute; top: 30px; left: 50%; transform: translateX(-50%) rotate(90deg); transform-origin: center; white-space: nowrap; font: 700 10px/1 'Cinzel',serif; letter-spacing: .14em; text-transform: uppercase; color: #e8c879; }
+.ribbon-label { position: absolute; top: 30px; left: 50%; transform: translateX(-50%) rotate(90deg); transform-origin: center; white-space: nowrap; font: 700 10px/1 'Cinzel',serif; letter-spacing: .14em; text-transform: uppercase; color: #ece4cd; }
 
 /* chrome */
 .topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 18px 26px; }
 .topright { display: flex; align-items: center; gap: 10px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; color: #f1e3c2; }
 .brand-mark { width: 40px; height: 32px; display: grid; place-items: center; }
-.brand-mark img { width: 100%; height: 100%; object-fit: contain; object-position: left center; display: block; filter: sepia(0.5) saturate(1.3) hue-rotate(5deg) brightness(1.1); }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; object-position: left center; display: block; }
 .brand-name { font: 600 16px/1 'Cinzel',serif; letter-spacing: .04em; color: #f1e3c2; }
-.brand-name b { font-weight: 700; color: #e8c879; }
-.chapters { display: flex; gap: 6px; background: rgba(40,24,10,0.5); border: 1px solid rgba(201,160,77,0.22); padding: 5px; border-radius: 999px; backdrop-filter: blur(8px); }
+.brand-name b { font-weight: 700; color: #5fae98; }
+.chapters { display: flex; gap: 6px; background: rgba(40,24,10,0.5); border: 1px solid rgba(70,120,105,0.22); padding: 5px; border-radius: 999px; backdrop-filter: blur(8px); }
 .chip { border: none; background: none; cursor: pointer; padding: 7px 13px; border-radius: 999px; font: 500 14px/1 'EB Garamond',serif; color: #d9c39a; transition: all .2s; }
 .chip:hover { color: #fff5e2; }
-.chip.on { background: linear-gradient(180deg,#e0bd72,#bd9038); color: #2a1a08; font-weight: 600; }
-.snd { width: 38px; height: 38px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; color: #d9c39a; background: rgba(40,24,10,0.5); border: 1px solid rgba(201,160,77,0.22); transition: all .2s; }
+.chip.on { background: linear-gradient(180deg,#3a7d6e,#235e50); color: #f7f1e2; font-weight: 600; }
+.snd { width: 38px; height: 38px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; color: #d9c39a; background: rgba(40,24,10,0.5); border: 1px solid rgba(70,120,105,0.22); transition: all .2s; }
 .snd:hover { color: #fff5e2; }
-.snd.on { background: linear-gradient(180deg,#e0bd72,#bd9038); color: #2a1a08; border-color: transparent; }
+.snd.on { background: linear-gradient(180deg,#3a7d6e,#235e50); color: #f7f1e2; border-color: transparent; }
 .snd svg { width: 18px; height: 18px; }
 
 .scroll-hint { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #cdb88c; font: 500 13px/1 'EB Garamond',serif; letter-spacing: .1em; }
@@ -439,23 +441,23 @@ onUnmounted(() => {
 
 /* case-study modal */
 .cs-overlay { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(12,7,2,0.78); backdrop-filter: blur(6px); }
-.cs { position: relative; width: min(680px, 96vw); max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; background: linear-gradient(160deg,#2c1c0d,#1a1006); border: 1px solid rgba(201,160,77,0.28); border-radius: 14px; box-shadow: 0 40px 90px rgba(0,0,0,0.65); }
+.cs { position: relative; width: min(680px, 96vw); max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; background: linear-gradient(160deg,#2c1c0d,#1a1006); border: 1px solid rgba(70,120,105,0.28); border-radius: 14px; box-shadow: 0 40px 90px rgba(0,0,0,0.65); }
 .cs-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 36px; height: 36px; border-radius: 999px; border: none; cursor: pointer; background: rgba(0,0,0,0.45); color: #f1e3c2; display: grid; place-items: center; }
 .cs-close svg { width: 20px; height: 20px; }
-.cs-shot { background: #f3e7cb; max-height: 300px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(201,160,77,0.25); }
+.cs-shot { background: #ece5d2; max-height: 300px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(70,120,105,0.25); }
 .cs-shot img { width: 100%; height: 100%; object-fit: contain; max-height: 300px; display: block; }
 .cs-body { padding: 24px 28px 28px; overflow-y: auto; color: #e3d3ad; }
-.cs-cat { font: 700 11px/1 'Cinzel',serif; letter-spacing: .16em; text-transform: uppercase; color: #e0bd72; }
+.cs-cat { font: 700 11px/1 'Cinzel',serif; letter-spacing: .16em; text-transform: uppercase; color: #5fae98; }
 .cs-title { font: 700 26px/1.15 'Cinzel',serif; color: #fbf2dc; margin: 8px 0 10px; }
 .cs-desc { font: 400 16px/1.6 'EB Garamond',serif; color: #d6c39c; }
-.cs-h { font: 700 12px/1 'Cinzel',serif; letter-spacing: .12em; text-transform: uppercase; color: #e8c879; margin: 20px 0 8px; }
+.cs-h { font: 700 12px/1 'Cinzel',serif; letter-spacing: .12em; text-transform: uppercase; color: #5fae98; margin: 20px 0 8px; }
 .cs-p { font: 400 15px/1.6 'EB Garamond',serif; color: #d6c39c; }
 .cs-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .cs-list li { position: relative; padding-left: 20px; font: 400 15px/1.5 'EB Garamond',serif; color: #ddcaa3; }
-.cs-list li::before { content: ''; position: absolute; left: 2px; top: 9px; width: 6px; height: 6px; transform: rotate(45deg); background: #d2a44a; }
+.cs-list li::before { content: ''; position: absolute; left: 2px; top: 9px; width: 6px; height: 6px; transform: rotate(45deg); background: #3a7d6e; }
 .cs-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
-.cs-tags span { font: 500 12px/1 'EB Garamond',serif; color: #e6cf9c; background: rgba(201,160,77,0.12); border: 1px solid rgba(201,160,77,0.3); padding: 6px 9px; border-radius: 6px; }
-.cs-visit { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; background: linear-gradient(180deg,#e0bd72,#bd9038); color: #2a1a08; text-decoration: none; padding: 12px 18px; border-radius: 8px; font: 700 14px/1 'Cinzel',serif; }
+.cs-tags span { font: 500 12px/1 'EB Garamond',serif; color: #e6cf9c; background: rgba(70,120,105,0.12); border: 1px solid rgba(70,120,105,0.3); padding: 6px 9px; border-radius: 6px; }
+.cs-visit { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; background: linear-gradient(180deg,#3a7d6e,#235e50); color: #f3eedd; text-decoration: none; padding: 12px 18px; border-radius: 8px; font: 700 14px/1 'Cinzel',serif; }
 .cs-visit svg { width: 16px; height: 16px; }
 .cs-enter-active,.cs-leave-active { transition: opacity .25s; }
 .cs-enter-from,.cs-leave-to { opacity: 0; }
